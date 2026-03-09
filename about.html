@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="About NeuroVita Medical Center — Learn about our mission, vision, and why we are the leading Neurology and Neurosurgery hospital." />
+    <title>About Us | NeuroVita Medical Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ================================================
+       CSS CUSTOM PROPERTIES
+    ================================================ */
+        :root {
+            --primary: #0d4f8b;
+            --primary-dark: #093a6a;
+            --primary-light: #1a6bb5;
+            --accent: #00a878;
+            --accent-light: #00c996;
+            --white: #ffffff;
+            --off-white: #f4f8fc;
+            --light-gray: #e8f0f7;
+            --mid-gray: #8fa3b8;
+            --dark: #0e1a2b;
+            --text: #2d3f55;
+            --text-light: #5a7088;
+
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+
+            --shadow-sm: 0 2px 10px rgba(13, 79, 139, 0.08);
+            --shadow-md: 0 8px 28px rgba(13, 79, 139, 0.14);
+            --shadow-lg: 0 20px 52px rgba(13, 79, 139, 0.18);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --ease: 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ================================================
+       RESET & BASE
+    ================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ================================================
+       UTILITY CLASSES
+    ================================================ */
+        .container {
+            width: 90%;
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 168, 120, 0.12);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: var(--dark);
+            line-height: 1.22;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.75;
+        }
+
+        /* ================================================
+       TOP BAR
+    ================================================ */
+        .top-bar {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.82rem;
+            padding: 9px 0;
+        }
+
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .top-bar-group {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255, 255, 255, 0.75);
+            transition: color 0.2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-light);
+        }
+
+        /* ================================================
+       NAVIGATION
+    ================================================ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(13, 79, 139, 0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-name {
+            font-family: var(--font-serif);
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-sub {
+            font-size: 0.66rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            padding: 8px 16px;
+            font-size: 0.91rem;
+            font-weight: 500;
+            color: var(--text);
+            border-radius: 8px;
+            transition: var(--ease);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--off-white);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-cta {
+            padding: 10px 24px !important;
+            background: var(--primary) !important;
+            color: var(--white) !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-light) !important;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+
+        /* ================================================
+       1. PAGE HEADER — TITLE BANNER
+    ================================================ */
+        .page-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #1e5fa0 100%);
+            padding: 80px 0 72px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 85%, rgba(0, 168, 120, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.06) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .page-banner::after {
+            content: '';
+            position: absolute;
+            right: -80px;
+            bottom: -80px;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 168, 120, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        .breadcrumb-sep {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .banner-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .banner-title span {
+            color: #5effd8;
+        }
+
+        .banner-subtitle {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.72);
+            max-width: 560px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+
+        .banner-stats {
+            display: inline-flex;
+            gap: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .banner-stat {
+            padding: 14px 32px;
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .banner-stat:last-child {
+            border-right: none;
+        }
+
+        .banner-stat-num {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            display: block;
+        }
+
+        .banner-stat-num em {
+            color: #5effd8;
+            font-style: normal;
+        }
+
+        .banner-stat-lbl {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 3px;
+            display: block;
+        }
+
+        /* ================================================
+       2. HOSPITAL INTRODUCTION — image + text side by side
+    ================================================ */
+        .intro {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .intro-grid {
+            display: flex;
+            align-items: center;
+            gap: 72px;
+        }
+
+        /* Image column */
+        .intro-visual {
+            flex: 0 0 460px;
+            position: relative;
+        }
+
+        .intro-img-frame {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/3;
+            background: linear-gradient(145deg, #c8dff7 0%, #8db7e8 50%, #5b9fd9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--ease);
+        }
+
+        .intro-img-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .intro-img-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .intro-big-icon {
+            font-size: 7rem;
+            filter: drop-shadow(0 8px 20px rgba(13, 79, 139, 0.2));
+        }
+
+        .intro-img-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(13, 79, 139, 0.7);
+            letter-spacing: 1px;
+        }
+
+        /* Floating badge on image */
+        .intro-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 200px;
+            border: 1px solid var(--light-gray);
+            z-index: 2;
+        }
+
+        .intro-badge-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 168, 120, 0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .intro-badge-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .intro-badge-txt {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Second small accent card */
+        .intro-accent {
+            position: absolute;
+            top: 24px;
+            left: -28px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            box-shadow: var(--shadow-md);
+            z-index: 2;
+            text-align: center;
+        }
+
+        .intro-accent-num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .intro-accent-txt {
+            font-size: 0.7rem;
+            opacity: 0.75;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 3px;
+        }
+
+        /* Text column */
+        .intro-body {
+            flex: 1;
+        }
+
+        .intro-highlight {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--off-white);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 20px;
+            margin: 24px 0 28px;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .intro-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .intro-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.93rem;
+            color: var(--text);
+        }
+
+        .intro-list-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(0, 168, 120, 0.12);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .intro-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-size: 0.93rem;
+            font-weight: 600;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--ease);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 168, 120, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ================================================
+       3. VISION & MISSION — 2 cards with hover effects
+    ================================================ */
+        .vision-mission {
+            padding: 100px 0;
+            background: var(--off-white);
+        }
+
+        .vm-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .vm-header .section-desc {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .vm-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .vm-card {
+            flex: 1 1 300px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--light-gray);
+            position: relative;
+            overflow: hidden;
+            transition: var(--ease);
+            cursor: default;
+        }
+
+        /* Top accent line */
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            transition: height var(--ease);
+        }
+
+        .vm-card.vision::before {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+        }
+
+        .vm-card.mission::before {
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+        }
+
+        /* Background decorative circle */
+        .vm-card::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            opacity: 0.05;
+            transition: opacity var(--ease), transform var(--ease);
+        }
+
+        .vm-card.vision::after {
+            background: var(--primary);
+        }
+
+        .vm-card.mission::after {
+            background: var(--accent);
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .vm-card:hover::before {
+            height: 7px;
+        }
+
+        .vm-card:hover::after {
+            opacity: 0.1;
+            transform: scale(1.2);
+        }
+
+        .vm-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 28px;
+            transition: transform var(--ease);
+        }
+
+        .vm-card.vision .vm-icon-wrap {
+            background: rgba(13, 79, 139, 0.1);
+        }
+
+        .vm-card.mission .vm-icon-wrap {
+            background: rgba(0, 168, 120, 0.1);
+        }
+
+        .vm-card:hover .vm-icon-wrap {
+            transform: scale(1.12) rotate(6deg);
+        }
+
+        .vm-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .vm-card.vision .vm-label {
+            color: var(--primary);
+        }
+
+        .vm-card.mission .vm-label {
+            color: var(--accent);
+        }
+
+        .vm-heading {
+            font-family: var(--font-serif);
+            font-size: 1.55rem;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .vm-text {
+            font-size: 0.93rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 28px;
+        }
+
+        .vm-points {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .vm-point {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.875rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .vm-point-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .vm-card.vision .vm-point-icon {
+            background: rgba(13, 79, 139, 0.1);
+            color: var(--primary);
+        }
+
+        .vm-card.mission .vm-point-icon {
+            background: rgba(0, 168, 120, 0.1);
+            color: var(--accent);
+        }
+
+        /* ================================================
+       4. WHY CHOOSE US — icon cards with transform hover
+    ================================================ */
+        .why-us {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .why-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .why-header .section-desc {
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .why-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .why-card {
+            flex: 1 1 220px;
+            max-width: 260px;
+            background: var(--off-white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-lg);
+            padding: 36px 24px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+            transition: var(--ease);
+        }
+
+        /* Hover fill sweep */
+        .why-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            opacity: 0;
+            transition: opacity var(--ease);
+            border-radius: inherit;
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .why-card:hover::before {
+            opacity: 1;
+        }
+
+        /* All children above pseudo-element */
+        .why-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-icon-ring {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 22px;
+            transition: transform var(--ease), background var(--ease), box-shadow var(--ease);
+        }
+
+        .why-card:hover .why-icon-ring {
+            transform: rotate(-8deg) scale(1.15);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .why-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            transition: color var(--ease);
+        }
+
+        .why-card:hover .why-title {
+            color: var(--white);
+        }
+
+        .why-desc {
+            font-size: 0.86rem;
+            color: var(--text-light);
+            line-height: 1.65;
+            transition: color var(--ease);
+        }
+
+        .why-card:hover .why-desc {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ================================================
+       TEAM STRIP  — small accent row between sections
+    ================================================ */
+        .team-strip {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            text-align: center;
+        }
+
+        .team-strip-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .team-strip-text {
+            color: var(--white);
+        }
+
+        .team-strip-text h3 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            margin-bottom: 8px;
+        }
+
+        .team-strip-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .team-strip-btn {
+            display: inline-block;
+            padding: 14px 34px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--ease);
+            white-space: nowrap;
+        }
+
+        .team-strip-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 168, 120, 0.35);
+        }
+
+        /* ================================================
+       5. FOOTER
+    ================================================ */
+        .site-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.65);
+            padding: 72px 0 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .footer-col {
+            flex: 1 1 200px;
+        }
+
+        .footer-logo {
+            margin-bottom: 18px;
+        }
+
+        .footer-logo .logo-name {
+            color: var(--white);
+        }
+
+        .footer-about {
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 22px;
+            max-width: 270px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: var(--ease);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 168, 120, 0.35);
+        }
+
+        .footer-col-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+            padding-left: 5px;
+        }
+
+        .footer-contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.875rem;
+        }
+
+        .fc-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .fc-text {
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.5;
+        }
+
+        .fc-text strong {
+            color: rgba(255, 255, 255, 0.85);
+            display: block;
+        }
+
+        .footer-bottom {
+            margin-top: 52px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 22px 0;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.38);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        /* ================================================
+       SCROLL ANIMATIONS
+    ================================================ */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            animation: fadeUp 0.65s ease forwards;
+        }
+
+        .d1 {
+            animation-delay: 0.05s;
+        }
+
+        .d2 {
+            animation-delay: 0.15s;
+        }
+
+        .d3 {
+            animation-delay: 0.25s;
+        }
+
+        .d4 {
+            animation-delay: 0.35s;
+        }
+
+        .d5 {
+            animation-delay: 0.45s;
+        }
+
+        .d6 {
+            animation-delay: 0.55s;
+        }
+
+        /* ================================================
+       RESPONSIVE — TABLET  ≤ 900px
+    ================================================ */
+        @media (max-width: 900px) {
+            .top-bar-group:last-child {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 16px 24px 32px;
+                box-shadow: var(--shadow-lg);
+                gap: 4px;
+                z-index: 999;
+                animation: fadeUp 0.2s ease forwards;
+            }
+
+            .nav-links.open a {
+                display: block;
+                padding: 12px 16px;
+                border-radius: var(--radius-sm);
+                font-size: 1rem;
+            }
+
+            .nav-cta {
+                text-align: center;
+            }
+
+            /* Intro: stack on tablet */
+            .intro-grid {
+                flex-direction: column;
+                gap: 60px;
+            }
+
+            .intro-visual {
+                flex: none;
+                width: 100%;
+                max-width: 500px;
+                align-self: center;
+            }
+
+            .intro-accent {
+                left: -14px;
+            }
+
+            /* Why cards */
+            .why-card {
+                flex: 1 1 200px;
+                max-width: 46%;
+            }
+
+            /* VM cards */
+            .vm-card {
+                flex: 1 1 280px;
+            }
+        }
+
+        /* ================================================
+       RESPONSIVE — MOBILE  ≤ 600px
+    ================================================ */
+        @media (max-width: 600px) {
+            .top-bar {
+                display: none;
+            }
+
+            .banner-stats {
+                flex-direction: column;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .banner-stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            }
+
+            .banner-stat:last-child {
+                border-bottom: none;
+            }
+
+            .intro {
+                padding: 72px 0;
+            }
+
+            .intro-grid {
+                gap: 48px;
+            }
+
+            .intro-badge {
+                right: 0;
+                bottom: -16px;
+                min-width: 180px;
+            }
+
+            .intro-accent {
+                display: none;
+            }
+
+            .vision-mission,
+            .why-us {
+                padding: 72px 0;
+            }
+
+            .vm-card {
+                flex: 1 1 100%;
+                padding: 36px 28px;
+            }
+
+            .why-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .team-strip-inner {
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .footer-grid {
+                gap: 36px;
+            }
+
+            .footer-col {
+                flex: 1 1 100%;
+            }
+
+            .footer-about {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══════════════════════════════════════
+       TOP BAR
+  ══════════════════════════════════════ -->
+    <div class="top-bar" role="banner" aria-label="Contact info bar">
+        <div class="container top-bar-inner">
+            <div class="top-bar-group">
+                <span class="top-bar-item">📍 123 Cortex Avenue, Boston, MA 02110</span>
+                <span class="top-bar-item">🕐 Mon – Fri: 7:00 AM – 8:00 PM</span>
+            </div>
+            <div class="top-bar-group">
+                <a href="mailto:info@neurovita.com" class="top-bar-item">✉️ info@neurovita.com</a>
+                <a href="tel:+18005551234" class="top-bar-item">📞 1-800-555-1234</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════ -->
+    <header class="site-header" role="banner">
+        <div class="container nav-inner">
+
+            <a href="index.html" class="logo" aria-label="NeuroVita Medical Center — Home">
+                <div class="logo-icon" aria-hidden="true">🧠</div>
+                <div class="logo-text">
+                    <span class="logo-name">NeuroVita</span>
+                    <span class="logo-sub">Medical Center</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#doctors">Doctors</a>
+                <a href="index.html#emergency">Emergency</a>
+                <a href="#" class="nav-cta">Book Appointment</a>
+            </nav>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════ -->
+    <main>
+
+        <!-- ────────────────────────────────
+         1. PAGE HEADER BANNER
+    ──────────────────────────────── -->
+        <section class="page-banner" aria-labelledby="banner-heading">
+            <div class="container banner-content">
+
+                <div class="banner-breadcrumb" aria-label="Breadcrumb navigation">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep" aria-hidden="true">›</span>
+                    <span>About Us</span>
+                </div>
+
+                <h1 class="banner-title fade-up d1" id="banner-heading">
+                    Advancing Brain Health<br><span>Since 1999</span>
+                </h1>
+
+                <p class="banner-subtitle fade-up d2">
+                    NeuroVita Medical Center is a nationally recognized leader in Neurology and Neurosurgery — built on
+                    a foundation of science, compassion, and relentless innovation.
+                </p>
+
+                <div class="banner-stats fade-up d3" role="list" aria-label="Key hospital statistics">
+                    <div class="banner-stat" role="listitem">
+                        <span class="banner-stat-num">25<em>+</em></span>
+                        <span class="banner-stat-lbl">Years of Care</span>
+                    </div>
+                    <div class="banner-stat" role="listitem">
+                        <span class="banner-stat-num">48<em>k</em></span>
+                        <span class="banner-stat-lbl">Patients Treated</span>
+                    </div>
+                    <div class="banner-stat" role="listitem">
+                        <span class="banner-stat-num">120<em>+</em></span>
+                        <span class="banner-stat-lbl">Specialists</span>
+                    </div>
+                    <div class="banner-stat" role="listitem">
+                        <span class="banner-stat-num">98<em>%</em></span>
+                        <span class="banner-stat-lbl">Satisfaction Rate</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ────────────────────────────────
+         2. HOSPITAL INTRODUCTION
+    ──────────────────────────────── -->
+        <section class="intro" id="intro" aria-labelledby="intro-heading">
+            <div class="container intro-grid">
+
+                <!-- Visual column -->
+                <div class="intro-visual fade-up d1">
+                    <div class="intro-img-frame" aria-label="Hospital interior illustration">
+                        <div class="intro-img-placeholder">
+                            <span class="intro-big-icon" aria-hidden="true">🏥</span>
+                            <span class="intro-img-label">NeuroVita Medical Center</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating cards -->
+                    <div class="intro-accent" aria-hidden="true">
+                        <div class="intro-accent-num">A+</div>
+                        <div class="intro-accent-txt">Accredited</div>
+                    </div>
+
+                    <div class="intro-badge" aria-label="25 years of expert care">
+                        <div class="intro-badge-icon" aria-hidden="true">⭐</div>
+                        <div>
+                            <div class="intro-badge-num">25 Years</div>
+                            <div class="intro-badge-txt">Of Expert Care</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text column -->
+                <div class="intro-body fade-up d2">
+                    <span class="section-tag">Who We Are</span>
+                    <h2 class="section-title" id="intro-heading">
+                        Boston's Premier Neuroscience<br>Hospital Since 1999
+                    </h2>
+                    <p class="section-desc">
+                        Founded by a team of world-renowned neurologists, NeuroVita Medical Center has grown into one of
+                        the most trusted destinations for complex neurological and neurosurgical care in the United
+                        States.
+                    </p>
+
+                    <blockquote class="intro-highlight">
+                        <span aria-hidden="true">💬</span>
+                        "We don't just treat conditions — we restore lives, one patient at a time."
+                        <br>— Dr. Elena Marchetti, Chief of Neurology
+                    </blockquote>
+
+                    <ul class="intro-list" aria-label="Key facts about NeuroVita">
+                        <li class="intro-list-item">
+                            <span class="intro-list-dot" aria-hidden="true">✓</span>
+                            Multidisciplinary team of 120+ board-certified neurologists and neurosurgeons.
+                        </li>
+                        <li class="intro-list-item">
+                            <span class="intro-list-dot" aria-hidden="true">✓</span>
+                            State-of-the-art intraoperative MRI, Gamma Knife, and robotic surgical systems.
+                        </li>
+                        <li class="intro-list-item">
+                            <span class="intro-list-dot" aria-hidden="true">✓</span>
+                            Joint Commission accredited with Comprehensive Stroke Center designation.
+                        </li>
+                        <li class="intro-list-item">
+                            <span class="intro-list-dot" aria-hidden="true">✓</span>
+                            Active research partnerships with Harvard, MIT, and Johns Hopkins.
+                        </li>
+                    </ul>
+
+                    <div class="intro-actions">
+                        <a href="#" class="btn btn-primary">📅 Book a Consultation</a>
+                        <a href="index.html#doctors" class="btn btn-outline">Meet Our Doctors</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ────────────────────────────────
+         3. VISION & MISSION
+    ──────────────────────────────── -->
+        <section class="vision-mission" id="vision-mission" aria-labelledby="vm-heading">
+            <div class="container">
+
+                <header class="vm-header">
+                    <span class="section-tag">Our Purpose</span>
+                    <h2 class="section-title" id="vm-heading">Vision &amp; Mission</h2>
+                    <p class="section-desc">
+                        Every decision at NeuroVita is guided by a clear purpose: to be the world's most trusted partner
+                        in neurological health.
+                    </p>
+                </header>
+
+                <div class="vm-grid">
+
+                    <!-- Vision Card -->
+                    <article class="vm-card vision fade-up d1" aria-label="Our Vision">
+                        <div class="vm-icon-wrap" aria-hidden="true">🔭</div>
+                        <p class="vm-label">Our Vision</p>
+                        <h3 class="vm-heading">A World Free of Neurological Suffering</h3>
+                        <p class="vm-text">
+                            We envision a future where every individual, regardless of background or geography, has
+                            access to world-class neurological care that is precise, compassionate, and life-changing.
+                        </p>
+                        <ul class="vm-points" aria-label="Vision pillars">
+                            <li class="vm-point">
+                                <span class="vm-point-icon" aria-hidden="true">✦</span>
+                                Global access to advanced neurocare
+                            </li>
+                            <li class="vm-point">
+                                <span class="vm-point-icon" aria-hidden="true">✦</span>
+                                Pioneer AI-driven diagnostics by 2030
+                            </li>
+                            <li class="vm-point">
+                                <span class="vm-point-icon" aria-hidden="true">✦</span>
+                                Zero preventable neurological deaths
+                            </li>
+                        </ul>
+                    </article>
+
+                    <!-- Mission Card -->
+                    <article class="vm-card mission fade-up d2" aria-label="Our Mission">
+                        <div class="vm-icon-wrap" aria-hidden="true">🎯</div>
+                        <p class="vm-label">Our Mission</p>
+                        <h3 class="vm-heading">Delivering Excellence in Every Encounter</h3>
+                        <p class="vm-text">
+                            Our mission is to provide the highest standard of neurological and neurosurgical care
+                            through innovation, education, and compassion — empowering patients to reclaim their lives.
+                        </p>
+                        <ul class="vm-points" aria-label="Mission pillars">
+                            <li class="vm-point">
+                                <span class="vm-point-icon" aria-hidden="true">✦</span>
+                                Patient-first, evidence-based care
+                            </li>
+                            <li class="vm-point">
+                                <span class="vm-point-icon" aria-hidden="true">✦</span>
+                                Continuous research and innovation
+                            </li>
+                            <li class="vm-point">
+                                <span class="vm-point-icon" aria-hidden="true">✦</span>
+                                Training the next generation of leaders
+                            </li>
+                        </ul>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ────────────────────────────────
+         4. WHY CHOOSE US
+    ──────────────────────────────── -->
+        <section class="why-us" id="why-us" aria-labelledby="why-heading">
+            <div class="container">
+
+                <header class="why-header">
+                    <span class="section-tag">Why NeuroVita</span>
+                    <h2 class="section-title" id="why-heading">Why Patients Choose Us</h2>
+                    <p class="section-desc">
+                        From world-class specialists to cutting-edge technology, here's what sets NeuroVita apart in
+                        neurological care.
+                    </p>
+                </header>
+
+                <div class="why-grid">
+
+                    <article class="why-card fade-up d1" aria-label="Expert Specialists">
+                        <div class="why-icon-ring" aria-hidden="true">🧠</div>
+                        <h3 class="why-title">World-Class Specialists</h3>
+                        <p class="why-desc">120+ board-certified neurologists and neurosurgeons with fellowship training
+                            from the world's top institutions.</p>
+                    </article>
+
+                    <article class="why-card fade-up d2" aria-label="Advanced Technology">
+                        <div class="why-icon-ring" aria-hidden="true">🔬</div>
+                        <h3 class="why-title">Advanced Technology</h3>
+                        <p class="why-desc">Intraoperative MRI, Gamma Knife radiosurgery, and AI-powered diagnostics for
+                            the most accurate treatment planning.</p>
+                    </article>
+
+                    <article class="why-card fade-up d3" aria-label="Multidisciplinary Care">
+                        <div class="why-icon-ring" aria-hidden="true">🤝</div>
+                        <h3 class="why-title">Multidisciplinary Care</h3>
+                        <p class="why-desc">Collaborative tumor boards and care teams ensure every patient benefits from
+                            collective expert wisdom, not siloed opinions.</p>
+                    </article>
+
+                    <article class="why-card fade-up d4" aria-label="24/7 Emergency">
+                        <div class="why-icon-ring" aria-hidden="true">🚑</div>
+                        <h3 class="why-title">24/7 Emergency Care</h3>
+                        <p class="why-desc">A dedicated rapid-response stroke and neuro-emergency team available around
+                            the clock, every day of the year.</p>
+                    </article>
+
+                    <article class="why-card fade-up d5" aria-label="Patient-Centered">
+                        <div class="why-icon-ring" aria-hidden="true">💙</div>
+                        <h3 class="why-title">Patient-Centered</h3>
+                        <p class="why-desc">Care navigators, multilingual support, and dedicated patient advocates
+                            ensure a seamless, stress-free experience.</p>
+                    </article>
+
+                    <article class="why-card fade-up d6" aria-label="Research & Innovation">
+                        <div class="why-icon-ring" aria-hidden="true">⚗️</div>
+                        <h3 class="why-title">Research &amp; Innovation</h3>
+                        <p class="why-desc">Active participation in 60+ clinical trials gives our patients access to the
+                            latest breakthrough treatments before they are widely available.</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Team strip -->
+        <div class="team-strip" aria-label="Join our team call to action">
+            <div class="container team-strip-inner">
+                <div class="team-strip-text">
+                    <h3>Ready to Experience Exceptional Neurological Care?</h3>
+                    <p>Our specialists are accepting new patients — book your consultation today.</p>
+                </div>
+                <a href="#" class="team-strip-btn">📅 Schedule Appointment</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+    <footer class="site-footer" id="footer" role="contentinfo">
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- About -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo" aria-label="NeuroVita home">
+                            <div class="logo-icon" aria-hidden="true">🧠</div>
+                            <div class="logo-text">
+                                <span class="logo-name">NeuroVita</span>
+                                <span class="logo-sub">Medical Center</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-about">
+                        A nationally ranked center of excellence for neurological and neurosurgical care, dedicated to
+                        restoring quality of life through innovation and compassion.
+                    </p>
+                    <nav class="social-links" aria-label="Social media links">
+                        <a href="#" class="social-link" aria-label="Facebook">𝑓</a>
+                        <a href="#" class="social-link" aria-label="X / Twitter">𝕏</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                    </nav>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Quick Links</h3>
+                    <nav class="footer-links" aria-label="Quick links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="index.html#services">Services</a>
+                        <a href="index.html#doctors">Find a Doctor</a>
+                        <a href="#">Patient Portal</a>
+                        <a href="#">Careers</a>
+                    </nav>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Services</h3>
+                    <nav class="footer-links" aria-label="Service links">
+                        <a href="#">Brain Tumor Surgery</a>
+                        <a href="#">Stroke Care</a>
+                        <a href="#">Spine Surgery</a>
+                        <a href="#">Epilepsy Program</a>
+                        <a href="#">Deep Brain Stimulation</a>
+                        <a href="#">Neuroimaging</a>
+                    </nav>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h3 class="footer-col-title">Contact Us</h3>
+                    <address class="footer-contact-list" style="font-style:normal;">
+                        <div class="footer-contact-item">
+                            <span class="fc-icon" aria-hidden="true">📍</span>
+                            <div class="fc-text"><strong>Main Campus</strong>123 Cortex Avenue, Suite 400<br>Boston, MA
+                                02110</div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="fc-icon" aria-hidden="true">📞</span>
+                            <div class="fc-text">
+                                <strong>Appointments</strong>
+                                <a href="tel:+18005551234" style="color:inherit;">1-800-555-1234</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="fc-icon" aria-hidden="true">🚨</span>
+                            <div class="fc-text">
+                                <strong>Emergency</strong>
+                                <a href="tel:+18009112911" style="color:#e63946;">1-800-911-2911</a>
+                            </div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="fc-icon" aria-hidden="true">✉️</span>
+                            <div class="fc-text">
+                                <strong>Email</strong>
+                                <a href="mailto:info@neurovita.com" style="color:inherit;">info@neurovita.com</a>
+                            </div>
+                        </div>
+                    </address>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container" style="display:contents;">
+                <p>© 2026 NeuroVita Medical Center. All rights reserved.</p>
+                <nav class="footer-bottom-links" aria-label="Legal links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Accessibility</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════
+       JAVASCRIPT — nav toggle + scroll reveal
+  ══════════════════════════════════════ -->
+    <script>
+        /* Mobile nav */
+        const toggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+            const [s1, s2, s3] = toggle.querySelectorAll('span');
+            if (isOpen) {
+                s1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                s2.style.opacity = '0';
+                s3.style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                [s1, s2, s3].forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+            }
+        });
+
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+            });
+        });
+
+        /* Scroll reveal */
+        const reveals = document.querySelectorAll('.fade-up');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.style.animationPlayState = 'running';
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            reveals.forEach(el => { el.style.animationPlayState = 'paused'; io.observe(el); });
+        } else {
+            reveals.forEach(el => { el.style.opacity = '1'; });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NeuroVita Departments — Neurology, Neurosurgery, and Diagnostic Units." />
+    <title>Departments | NeuroVita Medical Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── TOKENS ─────────────────────────────── */
+        :root {
+            --primary: #0d4f8b;
+            --primary-dk: #093a6a;
+            --primary-lt: #1a6bb5;
+            --accent: #00a878;
+            --accent-lt: #00c996;
+            --neuro-clr: #0d4f8b;
+            --surgery-clr: #7b2d8b;
+            --diag-clr: #00768a;
+            --white: #fff;
+            --off: #f4f8fc;
+            --lgray: #e8f0f7;
+            --dark: #0e1a2b;
+            --text: #2d3f55;
+            --muted: #5a7088;
+            --sans: 'Inter', sans-serif;
+            --serif: 'Playfair Display', serif;
+            --sh-sm: 0 2px 10px rgba(13, 79, 139, .08);
+            --sh-md: 0 8px 28px rgba(13, 79, 139, .14);
+            --sh-lg: 0 20px 52px rgba(13, 79, 139, .18);
+            --r-sm: 8px;
+            --r-md: 16px;
+            --r-lg: 24px;
+            --ease: .32s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        /* ── RESET ──────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.65;
+            overflow-x: hidden
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        ul {
+            list-style: none
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        /* ── LAYOUT ─────────────────────────────── */
+        .container {
+            width: 90%;
+            max-width: 1160px;
+            margin: 0 auto
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 168, 120, .12);
+            color: var(--accent);
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 10px
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+            color: var(--dark);
+            line-height: 1.22;
+            margin-bottom: 14px
+        }
+
+        .section-desc {
+            font-size: .97rem;
+            color: var(--muted);
+            line-height: 1.75
+        }
+
+        /* ── TOP BAR ────────────────────────────── */
+        .top-bar {
+            background: var(--primary-dk);
+            color: rgba(255, 255, 255, .75);
+            font-size: .81rem;
+            padding: 8px 0
+        }
+
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .top-bar-grp {
+            display: flex;
+            align-items: center;
+            gap: 20px
+        }
+
+        .top-bar a {
+            color: rgba(255, 255, 255, .75);
+            transition: color .2s
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-lt)
+        }
+
+        .tbi {
+            display: flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        /* ── NAV ────────────────────────────────── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--sh-sm)
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 20px
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(13, 79, 139, .25)
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1
+        }
+
+        .logo-name {
+            font-family: var(--serif);
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--primary)
+        }
+
+        .logo-sub {
+            font-size: .66rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1.2px;
+            text-transform: uppercase
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--text);
+            border-radius: 8px;
+            transition: var(--ease);
+            position: relative
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 15px;
+            right: 15px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform var(--ease)
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--off)
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1)
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 700
+        }
+
+        .nav-cta {
+            padding: 10px 22px !important;
+            background: var(--primary) !important;
+            color: var(--white) !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-lt) !important;
+            transform: translateY(-1px);
+            box-shadow: var(--sh-md)
+        }
+
+        .nav-cta::after {
+            display: none !important
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px
+        }
+
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--ease)
+        }
+
+        /* ── PAGE BANNER ────────────────────────── */
+        .page-banner {
+            background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 55%, #1e5fa0 100%);
+            padding: 76px 0 68px;
+            position: relative;
+            overflow: hidden;
+            text-align: center
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 168, 120, .16) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, .05) 0%, transparent 40%);
+            pointer-events: none
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2
+        }
+
+        .banner-bc {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .8);
+            font-size: .78rem;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 22px
+        }
+
+        .banner-bc span {
+            color: rgba(255, 255, 255, .4)
+        }
+
+        .banner-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            color: var(--white);
+            line-height: 1.16;
+            margin-bottom: 14px
+        }
+
+        .banner-title em {
+            color: #5effd8;
+            font-style: normal
+        }
+
+        .banner-sub {
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, .72);
+            max-width: 540px;
+            margin: 0 auto 32px;
+            line-height: 1.7
+        }
+
+        /* dept tabs */
+        .dept-tabs {
+            display: inline-flex;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .15);
+            border-radius: 50px;
+            padding: 4px;
+            gap: 4px
+        }
+
+        .dept-tab {
+            padding: 9px 22px;
+            border-radius: 50px;
+            font-size: .85rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .7);
+            cursor: pointer;
+            transition: var(--ease);
+            border: none;
+            background: none
+        }
+
+        .dept-tab:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, .1)
+        }
+
+        .dept-tab[data-color="neuro"] {}
+
+        .dept-tab.active {
+            background: var(--white);
+            color: var(--primary)
+        }
+
+        /* ── DEPT SECTION BASE ──────────────────── */
+        .dept-section {
+            padding: 96px 0;
+            position: relative
+        }
+
+        .dept-section:nth-child(even) {
+            background: var(--off)
+        }
+
+        /* dept header row */
+        .dept-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 48px;
+            margin-bottom: 60px;
+            flex-wrap: wrap
+        }
+
+        .dept-header-left {
+            flex: 1 1 300px
+        }
+
+        .dept-header-right {
+            flex: 1 1 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 8px
+        }
+
+        .dept-tag-blue .section-tag {
+            background: rgba(13, 79, 139, .12);
+            color: var(--primary)
+        }
+
+        .dept-tag-violet .section-tag {
+            background: rgba(123, 45, 139, .12);
+            color: var(--surgery-clr)
+        }
+
+        .dept-tag-teal .section-tag {
+            background: rgba(0, 118, 138, .12);
+            color: var(--diag-clr)
+        }
+
+        .dept-stat-row {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap
+        }
+
+        .dept-stat {
+            display: flex;
+            flex-direction: column
+        }
+
+        .dept-stat-num {
+            font-size: 1.9rem;
+            font-weight: 800;
+            line-height: 1
+        }
+
+        .dept-stat-lbl {
+            font-size: .7rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            margin-top: 3px
+        }
+
+        .stat-blue {
+            color: var(--primary)
+        }
+
+        .stat-violet {
+            color: var(--surgery-clr)
+        }
+
+        .stat-teal {
+            color: var(--diag-clr)
+        }
+
+        /* dept stripe bar */
+        .dept-stripe {
+            height: 4px;
+            border-radius: 2px;
+            margin-bottom: 30px;
+            width: 60px
+        }
+
+        .stripe-blue {
+            background: linear-gradient(90deg, var(--primary), var(--accent))
+        }
+
+        .stripe-violet {
+            background: linear-gradient(90deg, var(--surgery-clr), #c06ecc)
+        }
+
+        .stripe-teal {
+            background: linear-gradient(90deg, var(--diag-clr), var(--accent))
+        }
+
+        /* ── SERVICE CARDS GRID ─────────────────── */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px
+        }
+
+        /* SERVICE CARD */
+        .svc-card {
+            flex: 1 1 200px;
+            max-width: 270px;
+            background: var(--white);
+            border-radius: var(--r-lg);
+            padding: 30px 24px;
+            border: 1px solid var(--lgray);
+            box-shadow: var(--sh-sm);
+            position: relative;
+            overflow: hidden;
+            transition: var(--ease);
+            cursor: default
+        }
+
+        .svc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ease)
+        }
+
+        .svc-card.blue::before {
+            background: linear-gradient(90deg, var(--primary), var(--accent))
+        }
+
+        .svc-card.violet::before {
+            background: linear-gradient(90deg, var(--surgery-clr), #c06ecc)
+        }
+
+        .svc-card.teal::before {
+            background: linear-gradient(90deg, var(--diag-clr), var(--accent))
+        }
+
+        .svc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sh-lg);
+            border-color: transparent
+        }
+
+        .svc-card:hover::before {
+            transform: scaleX(1)
+        }
+
+        .card-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: var(--r-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+            transition: transform var(--ease)
+        }
+
+        .svc-card:hover .card-icon {
+            transform: scale(1.12) rotate(6deg)
+        }
+
+        .icon-bg-blue {
+            background: rgba(13, 79, 139, .1)
+        }
+
+        .icon-bg-violet {
+            background: rgba(123, 45, 139, .1)
+        }
+
+        .icon-bg-teal {
+            background: rgba(0, 118, 138, .1)
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px
+        }
+
+        .card-desc {
+            font-size: .86rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 16px
+        }
+
+        .card-link {
+            font-size: .83rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap var(--ease)
+        }
+
+        .card-link::after {
+            content: '→'
+        }
+
+        .svc-card.blue .card-link {
+            color: var(--primary)
+        }
+
+        .svc-card.violet .card-link {
+            color: var(--surgery-clr)
+        }
+
+        .svc-card.teal .card-link {
+            color: var(--diag-clr)
+        }
+
+        .svc-card:hover .card-link {
+            gap: 10px
+        }
+
+        /* ── DEPT FEATURE BADGE ─────────────────── */
+        .dept-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            border-radius: var(--r-md);
+            padding: 16px 20px;
+            border: 1px solid var(--lgray);
+            box-shadow: var(--sh-sm);
+            font-size: .88rem;
+            margin-top: 8px
+        }
+
+        .dept-feature-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0
+        }
+
+        .dept-feature strong {
+            display: block;
+            font-size: .82rem;
+            color: var(--text);
+            font-weight: 600
+        }
+
+        .dept-feature span {
+            color: var(--muted);
+            font-size: .8rem
+        }
+
+        /* ── CTA STRIP ──────────────────────────── */
+        .cta-strip {
+            padding: 64px 0;
+            background: linear-gradient(135deg, var(--primary-dk), var(--primary));
+            text-align: center
+        }
+
+        .cta-strip h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--white);
+            margin-bottom: 10px
+        }
+
+        .cta-strip p {
+            color: rgba(255, 255, 255, .7);
+            margin-bottom: 30px;
+            font-size: .97rem
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            border-radius: 50px;
+            font-size: .93rem;
+            font-weight: 600;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--ease)
+        }
+
+        .btn-green {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent)
+        }
+
+        .btn-green:hover {
+            background: var(--accent-lt);
+            border-color: var(--accent-lt);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 168, 120, .3)
+        }
+
+        .btn-white {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, .6)
+        }
+
+        .btn-white:hover {
+            background: rgba(255, 255, 255, .1);
+            border-color: var(--white);
+            transform: translateY(-2px)
+        }
+
+        /* ── FOOTER ─────────────────────────────── */
+        .site-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, .65);
+            padding: 72px 0 0
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px
+        }
+
+        .footer-col {
+            flex: 1 1 200px
+        }
+
+        .footer-logo {
+            margin-bottom: 16px
+        }
+
+        .footer-logo .logo-name {
+            color: var(--white)
+        }
+
+        .footer-about {
+            font-size: .87rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 22px;
+            max-width: 270px
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            transition: var(--ease)
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 168, 120, .35)
+        }
+
+        .fcol-title {
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            margin-bottom: 20px
+        }
+
+        .flinks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .flinks a {
+            font-size: .87rem;
+            color: rgba(255, 255, 255, .5);
+            transition: color .2s, padding-left .2s
+        }
+
+        .flinks a:hover {
+            color: var(--accent-lt);
+            padding-left: 5px
+        }
+
+        .fcontact {
+            display: flex;
+            flex-direction: column;
+            gap: 14px
+        }
+
+        .fci {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: .87rem
+        }
+
+        .fci-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px
+        }
+
+        .fci-text {
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.5
+        }
+
+        .fci-text strong {
+            color: rgba(255, 255, 255, .85);
+            display: block
+        }
+
+        .footer-bottom {
+            margin-top: 52px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            padding: 22px 0;
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .38);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, .5)
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-lt)
+        }
+
+        .fbl {
+            display: flex;
+            gap: 22px
+        }
+
+        /* ── ANIMATIONS ─────────────────────────── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(26px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .fu {
+            opacity: 0;
+            animation: fadeUp .6s ease forwards
+        }
+
+        .d1 {
+            animation-delay: .05s
+        }
+
+        .d2 {
+            animation-delay: .15s
+        }
+
+        .d3 {
+            animation-delay: .25s
+        }
+
+        .d4 {
+            animation-delay: .35s
+        }
+
+        .d5 {
+            animation-delay: .45s
+        }
+
+        .d6 {
+            animation-delay: .55s
+        }
+
+        /* ── MEDIA QUERIES ──────────────────────── */
+        @media(max-width:900px) {
+            .top-bar-grp:last-child {
+                display: none
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .nav-toggle {
+                display: flex
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 16px 24px 32px;
+                box-shadow: var(--sh-lg);
+                gap: 4px;
+                z-index: 999;
+                animation: fadeUp .2s ease forwards
+            }
+
+            .nav-links.open a {
+                display: block;
+                padding: 12px 16px;
+                border-radius: var(--r-sm);
+                font-size: 1rem
+            }
+
+            .nav-cta {
+                text-align: center
+            }
+
+            .dept-header {
+                gap: 32px;
+                margin-bottom: 44px
+            }
+
+            .svc-card {
+                flex: 1 1 220px;
+                max-width: 100%
+            }
+
+            .dept-stat-row {
+                gap: 20px
+            }
+        }
+
+        @media(max-width:600px) {
+            .top-bar {
+                display: none
+            }
+
+            .dept-section {
+                padding: 72px 0
+            }
+
+            .dept-header {
+                flex-direction: column;
+                gap: 24px
+            }
+
+            .svc-card {
+                flex: 1 1 100%;
+                max-width: 100%
+            }
+
+            .dept-tabs {
+                flex-wrap: wrap;
+                border-radius: var(--r-md)
+            }
+
+            .dept-tab {
+                flex: 1 1 auto;
+                text-align: center
+            }
+
+            .footer-grid {
+                gap: 36px
+            }
+
+            .footer-col {
+                flex: 1 1 100%
+            }
+
+            .footer-about {
+                max-width: 100%
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .fbl {
+                justify-content: center
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar" role="banner" aria-label="Contact information">
+        <div class="container top-bar-inner">
+            <div class="top-bar-grp">
+                <span class="tbi">📍 123 Cortex Avenue, Boston, MA 02110</span>
+                <span class="tbi">🕐 Mon – Fri: 7:00 AM – 8:00 PM</span>
+            </div>
+            <div class="top-bar-grp">
+                <a href="mailto:info@neurovita.com" class="tbi">✉️ info@neurovita.com</a>
+                <a href="tel:+18005551234" class="tbi">📞 1-800-555-1234</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="site-header" role="banner">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo" aria-label="NeuroVita Home">
+                <div class="logo-icon" aria-hidden="true">🧠</div>
+                <div class="logo-text">
+                    <span class="logo-name">NeuroVita</span>
+                    <span class="logo-sub">Medical Center</span>
+                </div>
+            </a>
+            <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="departments.html" class="active">Departments</a>
+                <a href="index.html#doctors">Doctors</a>
+                <a href="index.html#emergency">Emergency</a>
+                <a href="#" class="nav-cta">Book Appointment</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ══════════════════════════════
+       1. PAGE HEADER BANNER
+  ══════════════════════════════ -->
+        <section class="page-banner" aria-labelledby="banner-heading">
+            <div class="container banner-content">
+                <div class="banner-bc" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a><span aria-hidden="true">›</span><span>Departments</span>
+                </div>
+                <h1 class="banner-title fu d1" id="banner-heading">
+                    Our Clinical <em>Departments</em>
+                </h1>
+                <p class="banner-sub fu d2">
+                    Three world-class departments working together to deliver comprehensive brain and nervous system
+                    care — from diagnosis to recovery.
+                </p>
+                <nav class="dept-tabs fu d3" aria-label="Jump to department">
+                    <a href="#neurology" class="dept-tab active">🧠 Neurology</a>
+                    <a href="#neurosurgery" class="dept-tab">🔪 Neurosurgery</a>
+                    <a href="#diagnostics" class="dept-tab">🔬 Diagnostics</a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+       2. NEUROLOGY DEPARTMENT
+  ══════════════════════════════ -->
+        <section class="dept-section dept-tag-blue" id="neurology" aria-labelledby="neuro-heading">
+            <div class="container">
+
+                <div class="dept-header">
+                    <div class="dept-header-left fu d1">
+                        <span class="section-tag">Department 01</span>
+                        <div class="dept-stripe stripe-blue"></div>
+                        <h2 class="section-title" id="neuro-heading">Neurology Department</h2>
+                        <p class="section-desc">
+                            Our Neurology Department is one of the most comprehensive neurological programs in the
+                            country. Our expert team diagnoses and treats the full spectrum of neurological disorders —
+                            from common headaches to complex movement disorders — using the latest evidence-based
+                            protocols and cutting-edge technology.
+                        </p>
+                    </div>
+                    <div class="dept-header-right fu d2">
+                        <div class="dept-stat-row" aria-label="Neurology department statistics">
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-blue">62</span>
+                                <span class="dept-stat-lbl">Neurologists</span>
+                            </div>
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-blue">18k+</span>
+                                <span class="dept-stat-lbl">Patients / Year</span>
+                            </div>
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-blue">4.9★</span>
+                                <span class="dept-stat-lbl">Patient Rating</span>
+                            </div>
+                        </div>
+                        <div class="dept-feature">
+                            <span class="dept-feature-icon" aria-hidden="true">🏆</span>
+                            <div><strong>U.S. News Top-Ranked</strong><span>Neurology program, 2024 rankings</span>
+                            </div>
+                        </div>
+                        <div class="dept-feature">
+                            <span class="dept-feature-icon" aria-hidden="true">📅</span>
+                            <div><strong>Same-Week Appointments</strong><span>New patients seen within 5 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid" role="list" aria-label="Neurology services">
+                    <article class="svc-card blue fu d1" role="listitem" aria-label="Stroke & Cerebrovascular Disease">
+                        <div class="card-icon icon-bg-blue" aria-hidden="true">🫀</div>
+                        <h3 class="card-title">Stroke &amp; Cerebrovascular</h3>
+                        <p class="card-desc">24/7 stroke response, thrombectomy, carotid disease management and
+                            post-stroke rehabilitation programs.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card blue fu d2" role="listitem" aria-label="Epilepsy & Seizure Disorders">
+                        <div class="card-icon icon-bg-blue" aria-hidden="true">⚡</div>
+                        <h3 class="card-title">Epilepsy &amp; Seizures</h3>
+                        <p class="card-desc">Long-term EEG monitoring, video-EEG telemetry, and personalized medication
+                            and surgical planning for epilepsy.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card blue fu d3" role="listitem" aria-label="Movement Disorders">
+                        <div class="card-icon icon-bg-blue" aria-hidden="true">🤲</div>
+                        <h3 class="card-title">Movement Disorders</h3>
+                        <p class="card-desc">Parkinson's disease, essential tremor, dystonia and ataxia — treated with
+                            medication, DBS, and physical therapy.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card blue fu d4" role="listitem" aria-label="Headache & Migraine Clinic">
+                        <div class="card-icon icon-bg-blue" aria-hidden="true">🧬</div>
+                        <h3 class="card-title">Headache &amp; Migraine</h3>
+                        <p class="card-desc">Dedicated headache clinic with biofeedback, Botox therapy, CGRP treatments
+                            and neuromodulation options.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card blue fu d5" role="listitem" aria-label="Memory & Cognitive Disorders">
+                        <div class="card-icon icon-bg-blue" aria-hidden="true">🧠</div>
+                        <h3 class="card-title">Memory &amp; Cognition</h3>
+                        <p class="card-desc">Early detection and management of Alzheimer's, dementia, and MCI with
+                            neuropsychological evaluation support.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card blue fu d6" role="listitem" aria-label="Neuromuscular Disease">
+                        <div class="card-icon icon-bg-blue" aria-hidden="true">💪</div>
+                        <h3 class="card-title">Neuromuscular Disease</h3>
+                        <p class="card-desc">ALS, myasthenia gravis, peripheral neuropathy and muscular dystrophy care
+                            with EMG/nerve conduction studies.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+       3. NEUROSURGERY DEPARTMENT
+  ══════════════════════════════ -->
+        <section class="dept-section dept-tag-violet" id="neurosurgery" aria-labelledby="surgery-heading">
+            <div class="container">
+
+                <div class="dept-header">
+                    <div class="dept-header-left fu d1">
+                        <span class="section-tag">Department 02</span>
+                        <div class="dept-stripe stripe-violet"></div>
+                        <h2 class="section-title" id="surgery-heading">Neurosurgery Department</h2>
+                        <p class="section-desc">
+                            Our Neurosurgery Department combines the most advanced minimally invasive and open surgical
+                            techniques with real-time intraoperative imaging. Our surgeons are fellowship-trained
+                            leaders who have pioneered procedures adopted worldwide, achieving outcomes that
+                            consistently rank among the nation's best.
+                        </p>
+                    </div>
+                    <div class="dept-header-right fu d2">
+                        <div class="dept-stat-row" aria-label="Neurosurgery statistics">
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-violet">38</span>
+                                <span class="dept-stat-lbl">Neurosurgeons</span>
+                            </div>
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-violet">6k+</span>
+                                <span class="dept-stat-lbl">Surgeries / Year</span>
+                            </div>
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-violet">99%</span>
+                                <span class="dept-stat-lbl">Success Rate</span>
+                            </div>
+                        </div>
+                        <div class="dept-feature">
+                            <span class="dept-feature-icon" aria-hidden="true">🤖</span>
+                            <div><strong>Robotic-Assisted Surgery</strong><span>da Vinci &amp; ROSA surgical
+                                    systems</span></div>
+                        </div>
+                        <div class="dept-feature">
+                            <span class="dept-feature-icon" aria-hidden="true">🛡️</span>
+                            <div><strong>Intraoperative MRI</strong><span>Real-time imaging during surgery</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid" role="list" aria-label="Neurosurgery services">
+                    <article class="svc-card violet fu d1" role="listitem" aria-label="Brain Tumor Surgery">
+                        <div class="card-icon icon-bg-violet" aria-hidden="true">🔬</div>
+                        <h3 class="card-title">Brain Tumor Surgery</h3>
+                        <p class="card-desc">Awake craniotomy, fluorescence-guided resection and minimally invasive
+                            approaches for benign and malignant tumors.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card violet fu d2" role="listitem" aria-label="Cerebrovascular Surgery">
+                        <div class="card-icon icon-bg-violet" aria-hidden="true">🩸</div>
+                        <h3 class="card-title">Cerebrovascular Surgery</h3>
+                        <p class="card-desc">Aneurysm clipping and coiling, AVM resection, carotid endarterectomy and
+                            cerebral bypass procedures.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card violet fu d3" role="listitem" aria-label="Spine Surgery">
+                        <div class="card-icon icon-bg-violet" aria-hidden="true">🦴</div>
+                        <h3 class="card-title">Spine Surgery</h3>
+                        <p class="card-desc">Disc replacement, spinal fusion, decompression and minimally invasive
+                            procedures for all levels of the spine.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card violet fu d4" role="listitem" aria-label="Deep Brain Stimulation">
+                        <div class="card-icon icon-bg-violet" aria-hidden="true">⚡</div>
+                        <h3 class="card-title">Deep Brain Stimulation</h3>
+                        <p class="card-desc">DBS implantation for Parkinson's, essential tremor and dystonia using
+                            MRI-guided precision targeting.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card violet fu d5" role="listitem" aria-label="Gamma Knife Radiosurgery">
+                        <div class="card-icon icon-bg-violet" aria-hidden="true">☢️</div>
+                        <h3 class="card-title">Gamma Knife Radiosurgery</h3>
+                        <p class="card-desc">Non-invasive stereotactic radiosurgery for brain tumors, trigeminal
+                            neuralgia and acoustic neuromas.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card violet fu d6" role="listitem" aria-label="Pediatric Neurosurgery">
+                        <div class="card-icon icon-bg-violet" aria-hidden="true">👶</div>
+                        <h3 class="card-title">Pediatric Neurosurgery</h3>
+                        <p class="card-desc">Specialized surgical care for hydrocephalus, Chiari malformation, tethered
+                            cord and pediatric tumors.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+       4. DIAGNOSTIC UNIT
+  ══════════════════════════════ -->
+        <section class="dept-section dept-tag-teal" id="diagnostics" aria-labelledby="diag-heading">
+            <div class="container">
+
+                <div class="dept-header">
+                    <div class="dept-header-left fu d1">
+                        <span class="section-tag">Department 03</span>
+                        <div class="dept-stripe stripe-teal"></div>
+                        <h2 class="section-title" id="diag-heading">Diagnostic Unit</h2>
+                        <p class="section-desc">
+                            Accurate diagnosis is the foundation of effective treatment. Our Diagnostic Unit houses the
+                            most advanced neuroimaging and electrophysiology technology available, staffed by
+                            subspecialty-trained radiologists and neurophysiologists who work hand-in-hand with our
+                            clinical teams.
+                        </p>
+                    </div>
+                    <div class="dept-header-right fu d2">
+                        <div class="dept-stat-row" aria-label="Diagnostic unit statistics">
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-teal">24/7</span>
+                                <span class="dept-stat-lbl">Availability</span>
+                            </div>
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-teal">35k+</span>
+                                <span class="dept-stat-lbl">Scans / Year</span>
+                            </div>
+                            <div class="dept-stat">
+                                <span class="dept-stat-num stat-teal">&lt;2hr</span>
+                                <span class="dept-stat-lbl">Report Time</span>
+                            </div>
+                        </div>
+                        <div class="dept-feature">
+                            <span class="dept-feature-icon" aria-hidden="true">🧲</span>
+                            <div><strong>7T MRI Scanner</strong><span>Highest-field MRI for unmatched detail</span>
+                            </div>
+                        </div>
+                        <div class="dept-feature">
+                            <span class="dept-feature-icon" aria-hidden="true">🤖</span>
+                            <div><strong>AI-Powered Analysis</strong><span>Deep-learning assisted reads, faster
+                                    reports</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cards-grid" role="list" aria-label="Diagnostic services">
+                    <article class="svc-card teal fu d1" role="listitem" aria-label="MRI & fMRI Imaging">
+                        <div class="card-icon icon-bg-teal" aria-hidden="true">🧲</div>
+                        <h3 class="card-title">MRI &amp; Functional MRI</h3>
+                        <p class="card-desc">High-field 3T and 7T MRI for structural and functional brain mapping,
+                            perfusion and spectroscopy studies.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card teal fu d2" role="listitem" aria-label="CT & CT Angiography">
+                        <div class="card-icon icon-bg-teal" aria-hidden="true">🫁</div>
+                        <h3 class="card-title">CT &amp; CT Angiography</h3>
+                        <p class="card-desc">256-slice CT scanners with perfusion imaging and AI-assisted angiography
+                            for rapid stroke and vascular evaluation.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card teal fu d3" role="listitem" aria-label="EEG & Sleep Studies">
+                        <div class="card-icon icon-bg-teal" aria-hidden="true">📈</div>
+                        <h3 class="card-title">EEG &amp; Sleep Studies</h3>
+                        <p class="card-desc">Routine, ambulatory and long-term video-EEG monitoring alongside
+                            comprehensive polysomnography labs.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card teal fu d4" role="listitem" aria-label="EMG & Nerve Conduction">
+                        <div class="card-icon icon-bg-teal" aria-hidden="true">⚡</div>
+                        <h3 class="card-title">EMG &amp; Nerve Conduction</h3>
+                        <p class="card-desc">Electromyography and nerve conduction studies for accurate diagnosis of
+                            neuromuscular and neuropathic conditions.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card teal fu d5" role="listitem" aria-label="PET & Nuclear Imaging">
+                        <div class="card-icon icon-bg-teal" aria-hidden="true">☢️</div>
+                        <h3 class="card-title">PET &amp; Nuclear Imaging</h3>
+                        <p class="card-desc">Brain PET, SPECT and DaT scans for metabolic evaluation of dementia,
+                            movement disorders and neuro-oncology.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                    <article class="svc-card teal fu d6" role="listitem" aria-label="Neuropsychological Testing">
+                        <div class="card-icon icon-bg-teal" aria-hidden="true">📋</div>
+                        <h3 class="card-title">Neuropsychological Testing</h3>
+                        <p class="card-desc">Comprehensive cognitive and psychological batteries to evaluate memory,
+                            attention, language and executive function.</p>
+                        <a href="#" class="card-link">Learn More</a>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA STRIP -->
+        <div class="cta-strip" aria-label="Call to action">
+            <div class="container">
+                <h2>Need to See a Specialist?</h2>
+                <p>Our teams across all three departments are accepting new patients. Get expert evaluation quickly.</p>
+                <div class="cta-btns">
+                    <a href="#" class="btn btn-green">📅 Book an Appointment</a>
+                    <a href="index.html#emergency" class="btn btn-white">🚨 Emergency: 1-800-911-2911</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo" aria-label="NeuroVita home">
+                            <div class="logo-icon" aria-hidden="true">🧠</div>
+                            <div class="logo-text">
+                                <span class="logo-name">NeuroVita</span>
+                                <span class="logo-sub">Medical Center</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-about">A nationally ranked center of excellence for neurological and neurosurgical
+                        care, dedicated to restoring quality of life through innovation and compassion.</p>
+                    <nav class="social-links" aria-label="Social media">
+                        <a href="#" class="social-link" aria-label="Facebook">𝑓</a>
+                        <a href="#" class="social-link" aria-label="X">𝕏</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Departments</h3>
+                    <nav class="flinks" aria-label="Department links">
+                        <a href="#neurology">Neurology</a>
+                        <a href="#neurosurgery">Neurosurgery</a>
+                        <a href="#diagnostics">Diagnostic Unit</a>
+                        <a href="#">ICU &amp; Critical Care</a>
+                        <a href="#">Neuro-Rehabilitation</a>
+                        <a href="#">Research Lab</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Quick Links</h3>
+                    <nav class="flinks" aria-label="Quick links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="index.html#doctors">Find a Doctor</a>
+                        <a href="#">Patient Portal</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Research</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Contact Us</h3>
+                    <address class="fcontact" style="font-style:normal">
+                        <div class="fci"><span class="fci-icon" aria-hidden="true">📍</span>
+                            <div class="fci-text"><strong>Main Campus</strong>123 Cortex Ave, Suite 400<br>Boston, MA
+                                02110</div>
+                        </div>
+                        <div class="fci"><span class="fci-icon" aria-hidden="true">📞</span>
+                            <div class="fci-text"><strong>Appointments</strong><a href="tel:+18005551234"
+                                    style="color:inherit">1-800-555-1234</a></div>
+                        </div>
+                        <div class="fci"><span class="fci-icon" aria-hidden="true">🚨</span>
+                            <div class="fci-text"><strong>Emergency</strong><a href="tel:+18009112911"
+                                    style="color:#e63946">1-800-911-2911</a></div>
+                        </div>
+                        <div class="fci"><span class="fci-icon" aria-hidden="true">✉️</span>
+                            <div class="fci-text"><strong>Email</strong><a href="mailto:info@neurovita.com"
+                                    style="color:inherit">info@neurovita.com</a></div>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" style="display:contents">
+                <p>© 2026 NeuroVita Medical Center. All rights reserved.</p>
+                <nav class="fbl" aria-label="Legal links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a
+                        href="#">Accessibility</a></nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ── Mobile nav ── */
+        const toggle = document.getElementById('nav-toggle');
+        const nav = document.getElementById('nav-links');
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+            const [s1, s2, s3] = toggle.querySelectorAll('span');
+            if (open) { s1.style.transform = 'rotate(45deg) translate(5px,5px)'; s2.style.opacity = '0'; s3.style.transform = 'rotate(-45deg) translate(5px,-5px)'; }
+            else { [s1, s2, s3].forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+        });
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
+            toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+        }));
+
+        /* ── Dept tab active state ── */
+        document.querySelectorAll('.dept-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.dept-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        /* ── Scroll reveal ── */
+        const els = document.querySelectorAll('.fu');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; io.unobserve(e.target); } });
+            }, { threshold: .12 });
+            els.forEach(el => { el.style.animationPlayState = 'paused'; io.observe(el); });
+        } else { els.forEach(el => el.style.opacity = '1'); }
+    </script>
+
+</body>
+
+</html>

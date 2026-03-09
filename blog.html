@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="NeuroVita Medical Blog — expert articles on neurology, brain health, and neurosurgical advances." />
+    <title>Medical Blog | NeuroVita Medical Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── TOKENS ─────────────────────────────── */
+        :root {
+            --primary: #0d4f8b;
+            --primary-dk: #093a6a;
+            --primary-lt: #1a6bb5;
+            --accent: #00a878;
+            --accent-lt: #00c996;
+            --white: #ffffff;
+            --off: #f4f8fc;
+            --lgray: #e8f0f7;
+            --dark: #0e1a2b;
+            --text: #2d3f55;
+            --muted: #5a7088;
+            --sans: 'Inter', sans-serif;
+            --serif: 'Playfair Display', serif;
+            --sh-sm: 0 2px 10px rgba(13, 79, 139, .08);
+            --sh-md: 0 8px 28px rgba(13, 79, 139, .14);
+            --sh-lg: 0 22px 55px rgba(13, 79, 139, .20);
+            --r-sm: 8px;
+            --r-md: 16px;
+            --r-lg: 24px;
+            --ease: .32s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        /* ── RESET ──────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--off);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ── UTILS ──────────────────────────────── */
+        .container {
+            width: 90%;
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 168, 120, .12);
+            color: var(--accent);
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+
+        /* ── TOP BAR ────────────────────────────── */
+        .top-bar {
+            background: var(--primary-dk);
+            color: rgba(255, 255, 255, .75);
+            font-size: .81rem;
+            padding: 8px 0;
+        }
+
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tbg {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tbi {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255, 255, 255, .75);
+            transition: color .2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-lt);
+        }
+
+        /* ── NAV ────────────────────────────────── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--sh-sm);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(13, 79, 139, .25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-name {
+            font-family: var(--serif);
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-sub {
+            font-size: .66rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--text);
+            border-radius: 8px;
+            transition: var(--ease);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 15px;
+            right: 15px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--off);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .nav-cta {
+            padding: 10px 22px !important;
+            background: var(--primary) !important;
+            color: var(--white) !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-lt) !important;
+            transform: translateY(-1px);
+            box-shadow: var(--sh-md);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+
+        /* ── PAGE BANNER ────────────────────────── */
+        .page-banner {
+            background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 55%, #1e5fa0 100%);
+            padding: 76px 0 68px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 80%, rgba(0, 168, 120, .16) 0%, transparent 50%),
+                radial-gradient(circle at 82% 18%, rgba(255, 255, 255, .05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .banner-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-bc {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .8);
+            font-size: .78rem;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 22px;
+        }
+
+        .banner-bc span {
+            color: rgba(255, 255, 255, .4);
+        }
+
+        .banner-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            color: var(--white);
+            line-height: 1.16;
+            margin-bottom: 14px;
+        }
+
+        .banner-title em {
+            color: #5effd8;
+            font-style: normal;
+        }
+
+        .banner-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .72);
+            max-width: 520px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        /* category chips */
+        .cat-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cat-chip {
+            padding: 7px 18px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, .25);
+            background: rgba(255, 255, 255, .1);
+            color: rgba(255, 255, 255, .8);
+            font-size: .8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--ease);
+        }
+
+        .cat-chip:hover,
+        .cat-chip.active {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
+
+        /* ── BLOG SECTION ───────────────────────── */
+        .blog-section {
+            padding: 96px 0 100px;
+        }
+
+        .sec-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sec-title {
+            font-family: var(--serif);
+            font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .sec-desc {
+            font-size: .97rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* ── BLOG GRID ──────────────────────────── */
+        .blog-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        /* ── BLOG CARD ──────────────────────────── */
+        .blog-card {
+            flex: 1 1 320px;
+            max-width: 370px;
+            background: var(--white);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            border: 1px solid var(--lgray);
+            box-shadow: var(--sh-sm);
+            display: flex;
+            flex-direction: column;
+            transition: var(--ease);
+            position: relative;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--sh-lg);
+            border-color: transparent;
+        }
+
+        /* ── CARD IMAGE ─────────────────────────── */
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Image zoom on hover */
+        .card-img-inner {
+            position: absolute;
+            inset: 0;
+            transition: transform .55s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-card:hover .card-img-inner {
+            transform: scale(1.07);
+        }
+
+        /* Illustration emoji + big background */
+        .card-img-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-emoji {
+            font-size: 6rem;
+            filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .15));
+            user-select: none;
+        }
+
+        /* overlay gradient at bottom */
+        .card-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(14, 26, 43, .15), transparent);
+            pointer-events: none;
+        }
+
+        /* category badge */
+        .card-cat {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            font-size: .72rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 50px;
+            color: var(--white);
+            z-index: 2;
+        }
+
+        /* reading time */
+        .card-read-time {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: .72rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, .9);
+            color: var(--text);
+            padding: 4px 10px;
+            border-radius: 50px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* color themes */
+        .theme-blue .card-img-bg {
+            background: linear-gradient(145deg, #c4dcf5, #7db5e8);
+        }
+
+        .theme-green .card-img-bg {
+            background: linear-gradient(145deg, #b8ead8, #5ab899);
+        }
+
+        .theme-violet .card-img-bg {
+            background: linear-gradient(145deg, #d6c9f0, #9b82d8);
+        }
+
+        .theme-teal .card-img-bg {
+            background: linear-gradient(145deg, #b2e4ec, #4db8c8);
+        }
+
+        .theme-coral .card-img-bg {
+            background: linear-gradient(145deg, #fccfc6, #e8907e);
+        }
+
+        .theme-indigo .card-img-bg {
+            background: linear-gradient(145deg, #c3cbf8, #7b8fe8);
+        }
+
+        .cat-blue {
+            background: var(--primary);
+        }
+
+        .cat-green {
+            background: #027a58;
+        }
+
+        .cat-violet {
+            background: #6c3fa8;
+        }
+
+        .cat-teal {
+            background: #00768a;
+        }
+
+        .cat-coral {
+            background: #b54a36;
+        }
+
+        .cat-indigo {
+            background: #3556c9;
+        }
+
+        /* ── CARD BODY ──────────────────────────── */
+        .card-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .card-date {
+            font-size: .75rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .75rem;
+            color: var(--muted);
+        }
+
+        .author-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--lgray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .7rem;
+        }
+
+        .card-title {
+            font-family: var(--serif);
+            font-size: 1.18rem;
+            color: var(--dark);
+            line-height: 1.35;
+            margin-bottom: 10px;
+            transition: color var(--ease);
+        }
+
+        .blog-card:hover .card-title {
+            color: var(--primary);
+        }
+
+        .card-desc {
+            font-size: .875rem;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        /* tag row */
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .card-tag {
+            font-size: .72rem;
+            font-weight: 600;
+            color: var(--muted);
+            background: var(--off);
+            border: 1px solid var(--lgray);
+            padding: 3px 10px;
+            border-radius: 50px;
+        }
+
+        /* divider */
+        .card-divider {
+            height: 1px;
+            background: var(--lgray);
+            margin-bottom: 16px;
+        }
+
+        /* Read More button */
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: transparent;
+            border: 2px solid var(--lgray);
+            border-radius: 50px;
+            font-size: .86rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--ease);
+            align-self: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .read-more::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--ease);
+            border-radius: inherit;
+            z-index: 0;
+        }
+
+        .read-more span,
+        .read-more .arrow {
+            position: relative;
+            z-index: 1;
+            transition: color var(--ease);
+        }
+
+        .read-more .arrow {
+            transition: transform var(--ease), color var(--ease);
+        }
+
+        .read-more:hover::before {
+            transform: scaleX(1);
+        }
+
+        .read-more:hover {
+            border-color: var(--primary);
+            box-shadow: 0 6px 18px rgba(13, 79, 139, .22);
+            transform: translateY(-1px);
+        }
+
+        .read-more:hover span,
+        .read-more:hover .arrow {
+            color: var(--white);
+        }
+
+        .read-more:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        /* ── FEATURED BADGE ─────────────────────── */
+        .featured-ribbon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: var(--dark);
+            font-size: .65rem;
+            font-weight: 800;
+            padding: 4px 16px 4px 10px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8px 50%);
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            z-index: 3;
+        }
+
+        /* ── NEWSLETTER STRIP ───────────────────── */
+        .newsletter {
+            padding: 64px 0;
+            background: linear-gradient(135deg, var(--primary-dk), var(--primary));
+        }
+
+        .nl-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 36px;
+        }
+
+        .nl-text h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .nl-text p {
+            color: rgba(255, 255, 255, .7);
+            font-size: .93rem;
+        }
+
+        .nl-form {
+            display: flex;
+            gap: 0;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--sh-md);
+            flex: 0 1 480px;
+        }
+
+        .nl-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            outline: none;
+            font-family: var(--sans);
+            font-size: .9rem;
+            color: var(--dark);
+        }
+
+        .nl-input::placeholder {
+            color: var(--muted);
+        }
+
+        .nl-btn {
+            padding: 14px 28px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            font-family: var(--sans);
+            font-size: .9rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background var(--ease);
+        }
+
+        .nl-btn:hover {
+            background: var(--accent-lt);
+        }
+
+        /* ── FOOTER ─────────────────────────────── */
+        .site-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, .65);
+            padding: 72px 0 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .footer-col {
+            flex: 1 1 200px;
+        }
+
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .logo-name {
+            color: var(--white);
+        }
+
+        .footer-about {
+            font-size: .87rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 22px;
+            max-width: 270px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            transition: var(--ease);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .fcol-title {
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            margin-bottom: 20px;
+        }
+
+        .flinks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .flinks a {
+            font-size: .87rem;
+            color: rgba(255, 255, 255, .5);
+            transition: color .2s, padding-left .2s;
+        }
+
+        .flinks a:hover {
+            color: var(--accent-lt);
+            padding-left: 5px;
+        }
+
+        .fcontact {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .fci {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: .87rem;
+        }
+
+        .fci-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .fci-text {
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.5;
+        }
+
+        .fci-text strong {
+            color: rgba(255, 255, 255, .85);
+            display: block;
+        }
+
+        .footer-bottom {
+            margin-top: 52px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            padding: 22px 0;
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .38);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-lt);
+        }
+
+        .fbl {
+            display: flex;
+            gap: 22px;
+        }
+
+        /* ── ANIMATIONS ─────────────────────────── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(26px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .fu {
+            opacity: 0;
+            animation: fadeUp .6s ease forwards;
+        }
+
+        .d1 {
+            animation-delay: .05s
+        }
+
+        .d2 {
+            animation-delay: .13s
+        }
+
+        .d3 {
+            animation-delay: .21s
+        }
+
+        .d4 {
+            animation-delay: .29s
+        }
+
+        .d5 {
+            animation-delay: .37s
+        }
+
+        .d6 {
+            animation-delay: .45s
+        }
+
+        /* ── RESPONSIVE ─────────────────────────── */
+        @media (max-width:900px) {
+            .tbg:last-child {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 16px 24px 32px;
+                box-shadow: var(--sh-lg);
+                gap: 4px;
+                z-index: 999;
+                animation: fadeUp .2s ease forwards;
+            }
+
+            .nav-links.open a {
+                display: block;
+                padding: 12px 16px;
+                border-radius: var(--r-sm);
+                font-size: 1rem;
+            }
+
+            .nav-cta {
+                text-align: center;
+            }
+
+            .blog-card {
+                flex: 1 1 280px;
+                max-width: 100%;
+            }
+
+            .nl-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nl-form {
+                width: 100%;
+                flex: none;
+            }
+        }
+
+        @media (max-width:600px) {
+            .top-bar {
+                display: none;
+            }
+
+            .blog-section {
+                padding: 72px 0;
+            }
+
+            .blog-card {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .cat-row {
+                gap: 8px;
+            }
+
+            .footer-grid {
+                gap: 36px;
+            }
+
+            .footer-col {
+                flex: 1 1 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .fbl {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar" role="banner" aria-label="Contact information">
+        <div class="container top-bar-inner">
+            <div class="tbg">
+                <span class="tbi">📍 123 Cortex Avenue, Boston, MA 02110</span>
+                <span class="tbi">🕐 Mon – Fri: 7:00 AM – 8:00 PM</span>
+            </div>
+            <div class="tbg">
+                <a href="mailto:info@neurovita.com" class="tbi">✉️ info@neurovita.com</a>
+                <a href="tel:+18005551234" class="tbi">📞 1-800-555-1234</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <header class="site-header" role="banner">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo" aria-label="NeuroVita Medical Center Home">
+                <div class="logo-icon" aria-hidden="true">🧠</div>
+                <div class="logo-text">
+                    <span class="logo-name">NeuroVita</span>
+                    <span class="logo-sub">Medical Center</span>
+                </div>
+            </a>
+            <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="departments.html">Departments</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="appointment.html" class="nav-cta">Book Appointment</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ══════════════════════════════
+       PAGE BANNER
+  ══════════════════════════════ -->
+        <section class="page-banner" aria-labelledby="banner-heading">
+            <div class="container banner-inner">
+                <div class="banner-bc">
+                    <a href="index.html">Home</a><span aria-hidden="true">›</span><span>Medical Blog</span>
+                </div>
+                <h1 class="banner-title fu d1" id="banner-heading">
+                    NeuroVita <em>Medical Blog</em>
+                </h1>
+                <p class="banner-sub fu d2">
+                    Evidence-based articles, research updates, and expert insights from our team of world-class
+                    neurologists and neurosurgeons.
+                </p>
+                <nav class="cat-row fu d3" aria-label="Filter by category">
+                    <button class="cat-chip active">All Articles</button>
+                    <button class="cat-chip">Brain Health</button>
+                    <button class="cat-chip">Research</button>
+                    <button class="cat-chip">Neurosurgery</button>
+                    <button class="cat-chip">Epilepsy</button>
+                    <button class="cat-chip">Patient Stories</button>
+                </nav>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════
+       BLOG GRID
+  ══════════════════════════════ -->
+        <section class="blog-section" aria-labelledby="blog-heading">
+            <div class="container">
+
+                <div class="sec-header">
+                    <span class="section-tag">Latest Articles</span>
+                    <h2 class="sec-title" id="blog-heading">Expert Insights &amp; Medical News</h2>
+                    <p class="sec-desc">Stay informed with the latest advances in neurological science, patient care,
+                        and brain health from our specialist team.</p>
+                </div>
+
+                <div class="blog-grid" role="list" aria-label="Blog articles">
+
+                    <!-- ── CARD 1 ── -->
+                    <article class="blog-card theme-blue fu d1" role="listitem"
+                        aria-label="Blog article: Early Warning Signs of Stroke">
+                        <div class="card-img" aria-hidden="true">
+                            <div class="card-img-inner">
+                                <div class="card-img-bg"></div>
+                                <span class="card-emoji">🫀</span>
+                            </div>
+                            <span class="card-cat cat-blue">Brain Health</span>
+                            <span class="card-read-time">⏱ 5 min read</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-date">📅 Jan 28, 2026</span>
+                                <span class="card-author">
+                                    <span class="author-avatar">👩‍⚕️</span> Dr. E. Marchetti
+                                </span>
+                            </div>
+                            <h3 class="card-title">Early Warning Signs of Stroke You Should Never Ignore</h3>
+                            <p class="card-desc">Recognizing stroke symptoms within the first hour can mean the
+                                difference between full recovery and lifelong disability. Learn the FAST acronym and
+                                what neurologists want you to know about acting quickly.</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Stroke</span>
+                                <span class="card-tag">Prevention</span>
+                                <span class="card-tag">Emergency</span>
+                            </div>
+                            <div class="card-divider" aria-hidden="true"></div>
+                            <a href="#" class="read-more" aria-label="Read full article: Early Warning Signs of Stroke">
+                                <span>Read More</span>
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ── CARD 2 ── -->
+                    <article class="blog-card theme-violet fu d2" role="listitem"
+                        aria-label="Blog article: Living with Epilepsy">
+                        <div class="featured-ribbon" aria-label="Featured article">⭐ Featured</div>
+                        <div class="card-img" aria-hidden="true">
+                            <div class="card-img-inner">
+                                <div class="card-img-bg"></div>
+                                <span class="card-emoji">⚡</span>
+                            </div>
+                            <span class="card-cat cat-violet">Epilepsy</span>
+                            <span class="card-read-time">⏱ 7 min read</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-date">📅 Feb 4, 2026</span>
+                                <span class="card-author">
+                                    <span class="author-avatar">👩‍⚕️</span> Dr. P. Anandhi
+                                </span>
+                            </div>
+                            <h3 class="card-title">Living Well with Epilepsy: A Modern Approach to Seizure Management
+                            </h3>
+                            <p class="card-desc">More than 3 million Americans live with epilepsy. New anti-seizure
+                                medications, dietary therapies, and neurostimulation devices are transforming how
+                                patients manage their condition and reclaim their lives.</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Epilepsy</span>
+                                <span class="card-tag">Neurology</span>
+                                <span class="card-tag">Treatment</span>
+                            </div>
+                            <div class="card-divider" aria-hidden="true"></div>
+                            <a href="#" class="read-more" aria-label="Read full article: Living with Epilepsy">
+                                <span>Read More</span>
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ── CARD 3 ── -->
+                    <article class="blog-card theme-teal fu d3" role="listitem"
+                        aria-label="Blog article: Awake Brain Surgery">
+                        <div class="card-img" aria-hidden="true">
+                            <div class="card-img-inner">
+                                <div class="card-img-bg"></div>
+                                <span class="card-emoji">🔬</span>
+                            </div>
+                            <span class="card-cat cat-teal">Neurosurgery</span>
+                            <span class="card-read-time">⏱ 6 min read</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-date">📅 Feb 9, 2026</span>
+                                <span class="card-author">
+                                    <span class="author-avatar">👨‍⚕️</span> Dr. J. Okafor
+                                </span>
+                            </div>
+                            <h3 class="card-title">Awake Brain Surgery: What It Is and Why It's Life-Saving</h3>
+                            <p class="card-desc">Awake craniotomy allows surgeons to remove brain tumors while the
+                                patient remains conscious, enabling real-time mapping of speech and motor function. Our
+                                team explains how this remarkable procedure works.</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Surgery</span>
+                                <span class="card-tag">Brain Tumor</span>
+                                <span class="card-tag">Innovation</span>
+                            </div>
+                            <div class="card-divider" aria-hidden="true"></div>
+                            <a href="#" class="read-more" aria-label="Read full article: Awake Brain Surgery">
+                                <span>Read More</span>
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ── CARD 4 ── -->
+                    <article class="blog-card theme-green fu d4" role="listitem"
+                        aria-label="Blog article: Parkinson's Disease and DBS">
+                        <div class="card-img" aria-hidden="true">
+                            <div class="card-img-inner">
+                                <div class="card-img-bg"></div>
+                                <span class="card-emoji">🤲</span>
+                            </div>
+                            <span class="card-cat cat-green">Research</span>
+                            <span class="card-read-time">⏱ 8 min read</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-date">📅 Feb 12, 2026</span>
+                                <span class="card-author">
+                                    <span class="author-avatar">👩‍⚕️</span> Dr. A. Rahman
+                                </span>
+                            </div>
+                            <h3 class="card-title">Deep Brain Stimulation for Parkinson's: A Decade of Life-Changing
+                                Outcomes</h3>
+                            <p class="card-desc">DBS has transformed Parkinson's care over the past decade. Our movement
+                                disorders team reviews long-term outcomes, emerging adaptive stimulation systems, and
+                                what the future holds for patients with movement disorders.</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Parkinson's</span>
+                                <span class="card-tag">DBS</span>
+                                <span class="card-tag">Research</span>
+                            </div>
+                            <div class="card-divider" aria-hidden="true"></div>
+                            <a href="#" class="read-more" aria-label="Read full article: DBS for Parkinson's">
+                                <span>Read More</span>
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ── CARD 5 ── -->
+                    <article class="blog-card theme-coral fu d5" role="listitem"
+                        aria-label="Blog article: Migraine vs Headache">
+                        <div class="card-img" aria-hidden="true">
+                            <div class="card-img-inner">
+                                <div class="card-img-bg"></div>
+                                <span class="card-emoji">🧬</span>
+                            </div>
+                            <span class="card-cat cat-coral">Brain Health</span>
+                            <span class="card-read-time">⏱ 4 min read</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-date">📅 Feb 15, 2026</span>
+                                <span class="card-author">
+                                    <span class="author-avatar">👩‍⚕️</span> Dr. E. Marchetti
+                                </span>
+                            </div>
+                            <h3 class="card-title">Migraine vs. Headache: How to Tell the Difference and When to See a
+                                Doctor</h3>
+                            <p class="card-desc">Many patients dismiss migraines as "just headaches." A neurologist
+                                explains the key clinical differences, triggering factors, and the breakthrough CGRP
+                                therapies now offering real relief for chronic migraine sufferers.</p>
+                            <div class="card-tags">
+                                <span class="card-tag">Migraine</span>
+                                <span class="card-tag">Headache</span>
+                                <span class="card-tag">CGRP</span>
+                            </div>
+                            <div class="card-divider" aria-hidden="true"></div>
+                            <a href="#" class="read-more" aria-label="Read full article: Migraine vs Headache">
+                                <span>Read More</span>
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- ── CARD 6 ── -->
+                    <article class="blog-card theme-indigo fu d6" role="listitem"
+                        aria-label="Blog article: AI in Neurology">
+                        <div class="featured-ribbon" aria-label="Featured article">🔥 Trending</div>
+                        <div class="card-img" aria-hidden="true">
+                            <div class="card-img-inner">
+                                <div class="card-img-bg"></div>
+                                <span class="card-emoji">🤖</span>
+                            </div>
+                            <span class="card-cat cat-indigo">Research</span>
+                            <span class="card-read-time">⏱ 9 min read</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span class="card-date">📅 Feb 18, 2026</span>
+                                <span class="card-author">
+                                    <span class="author-avatar">👨‍⚕️</span> Dr. M. Chen
+                                </span>
+                            </div>
+                            <h3 class="card-title">How AI Is Revolutionizing Brain Tumor Detection and Treatment
+                                Planning</h3>
+                            <p class="card-desc">Artificial intelligence is now detecting gliomas from MRI scans with
+                                radiologist-level accuracy and predicting treatment response months in advance. Our
+                                neuro-oncology team explains the science and its real-world clinical impact.</p>
+                            <div class="card-tags">
+                                <span class="card-tag">AI</span>
+                                <span class="card-tag">Neuro-Oncology</span>
+                                <span class="card-tag">Innovation</span>
+                            </div>
+                            <div class="card-divider" aria-hidden="true"></div>
+                            <a href="#" class="read-more" aria-label="Read full article: AI in Neurology">
+                                <span>Read More</span>
+                                <span class="arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                </div><!-- /blog-grid -->
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <div class="newsletter" aria-label="Newsletter signup">
+            <div class="container nl-inner">
+                <div class="nl-text">
+                    <h2>Get Expert Neurology Insights in Your Inbox</h2>
+                    <p>Monthly articles, research updates, and brain health tips — curated by our specialist team.</p>
+                </div>
+                <form class="nl-form" aria-label="Newsletter subscription form" novalidate>
+                    <input type="email" class="nl-input" placeholder="Your email address…"
+                        aria-label="Email address for newsletter" />
+                    <button type="submit" class="nl-btn">Subscribe →</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo" aria-label="NeuroVita home">
+                            <div class="logo-icon" aria-hidden="true">🧠</div>
+                            <div class="logo-text">
+                                <span class="logo-name">NeuroVita</span>
+                                <span class="logo-sub">Medical Center</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-about">A nationally ranked center of excellence for neurological and neurosurgical
+                        care, dedicated to restoring quality of life through innovation and compassion.</p>
+                    <nav class="social-links" aria-label="Social media">
+                        <a href="#" class="social-link" aria-label="Facebook">𝑓</a>
+                        <a href="#" class="social-link" aria-label="X">𝕏</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Blog Categories</h3>
+                    <nav class="flinks">
+                        <a href="#">Brain Health</a>
+                        <a href="#">Neurology Research</a>
+                        <a href="#">Neurosurgery Advances</a>
+                        <a href="#">Epilepsy &amp; Seizures</a>
+                        <a href="#">Patient Stories</a>
+                        <a href="#">Movement Disorders</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Quick Links</h3>
+                    <nav class="flinks">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="departments.html">Departments</a>
+                        <a href="doctors.html">Our Doctors</a>
+                        <a href="appointment.html">Book Appointment</a>
+                        <a href="#">Patient Portal</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Contact Us</h3>
+                    <address class="fcontact" style="font-style:normal">
+                        <div class="fci"><span class="fci-icon">📍</span>
+                            <div class="fci-text"><strong>Main Campus</strong>123 Cortex Ave, Suite 400<br>Boston, MA
+                                02110</div>
+                        </div>
+                        <div class="fci"><span class="fci-icon">📞</span>
+                            <div class="fci-text"><strong>Appointments</strong><a href="tel:+18005551234"
+                                    style="color:inherit">1-800-555-1234</a></div>
+                        </div>
+                        <div class="fci"><span class="fci-icon">🚨</span>
+                            <div class="fci-text"><strong>Emergency</strong><a href="tel:+18009112911"
+                                    style="color:#e63946">1-800-911-2911</a></div>
+                        </div>
+                        <div class="fci"><span class="fci-icon">✉️</span>
+                            <div class="fci-text"><strong>Email</strong><a href="mailto:info@neurovita.com"
+                                    style="color:inherit">info@neurovita.com</a></div>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" style="display:contents">
+                <p>© 2026 NeuroVita Medical Center. All rights reserved.</p>
+                <nav class="fbl" aria-label="Legal links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Accessibility</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* Mobile nav */
+        const toggle = document.getElementById('nav-toggle');
+        const nav = document.getElementById('nav-links');
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+            const [s1, s2, s3] = toggle.querySelectorAll('span');
+            if (open) { s1.style.transform = 'rotate(45deg) translate(5px,5px)'; s2.style.opacity = '0'; s3.style.transform = 'rotate(-45deg) translate(5px,-5px)'; }
+            else { [s1, s2, s3].forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+        });
+
+        /* Category chips */
+        document.querySelectorAll('.cat-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+            });
+        });
+
+        /* Scroll reveal */
+        const els = document.querySelectorAll('.fu');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; io.unobserve(e.target); } });
+            }, { threshold: 0.1 });
+            els.forEach(el => { el.style.animationPlayState = 'paused'; io.observe(el); });
+        } else {
+            els.forEach(el => el.style.opacity = '1');
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Book an appointment at NeuroVita Medical Center — Neurology & Neurosurgery specialists." />
+    <title>Book Appointment | NeuroVita Medical Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── TOKENS ───────────────────────────────── */
+        :root {
+            --primary: #0d4f8b;
+            --primary-dk: #093a6a;
+            --primary-lt: #1a6bb5;
+            --accent: #00a878;
+            --accent-lt: #00c996;
+            --white: #ffffff;
+            --off: #f4f8fc;
+            --lgray: #e8f0f7;
+            --dark: #0e1a2b;
+            --text: #2d3f55;
+            --muted: #5a7088;
+            --danger: #e63946;
+            --sans: 'Inter', sans-serif;
+            --serif: 'Playfair Display', serif;
+            --sh-sm: 0 2px 10px rgba(13, 79, 139, .08);
+            --sh-md: 0 8px 28px rgba(13, 79, 139, .14);
+            --sh-lg: 0 22px 55px rgba(13, 79, 139, .18);
+            --r-sm: 8px;
+            --r-md: 16px;
+            --r-lg: 24px;
+            --ease: .28s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        /* ── RESET ────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--off);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ── UTILS ────────────────────────────────── */
+        .container {
+            width: 90%;
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        /* ── TOP BAR ──────────────────────────────── */
+        .top-bar {
+            background: var(--primary-dk);
+            color: rgba(255, 255, 255, .75);
+            font-size: .81rem;
+            padding: 8px 0;
+        }
+
+        .top-bar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tbg {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .tbi {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar a {
+            color: rgba(255, 255, 255, .75);
+            transition: color .2s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-lt);
+        }
+
+        /* ── NAV ──────────────────────────────────── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: var(--sh-sm);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 12px rgba(13, 79, 139, .25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-name {
+            font-family: var(--serif);
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-sub {
+            font-size: .66rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            padding: 8px 15px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--text);
+            border-radius: 8px;
+            transition: var(--ease);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 15px;
+            right: 15px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--off);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .nav-cta {
+            padding: 10px 22px !important;
+            background: var(--primary) !important;
+            color: var(--white) !important;
+            border-radius: 50px !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-lt) !important;
+            transform: translateY(-1px);
+            box-shadow: var(--sh-md);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: var(--ease);
+        }
+
+        /* ── PAGE BANNER ──────────────────────────── */
+        .page-banner {
+            background: linear-gradient(135deg, var(--primary-dk) 0%, var(--primary) 55%, #1e5fa0 100%);
+            padding: 60px 0 56px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 80%, rgba(0, 168, 120, .18) 0%, transparent 50%),
+                radial-gradient(circle at 85% 15%, rgba(255, 255, 255, .05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .banner-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-bc {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .8);
+            font-size: .78rem;
+            padding: 5px 16px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+        }
+
+        .banner-bc span {
+            color: rgba(255, 255, 255, .4);
+        }
+
+        .banner-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--white);
+            line-height: 1.18;
+            margin-bottom: 12px;
+        }
+
+        .banner-title em {
+            color: #5effd8;
+            font-style: normal;
+        }
+
+        .banner-sub {
+            font-size: .97rem;
+            color: rgba(255, 255, 255, .72);
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── MAIN LAYOUT ──────────────────────────── */
+        .appt-section {
+            padding: 80px 0 100px;
+        }
+
+        .appt-grid {
+            display: flex;
+            gap: 36px;
+            align-items: flex-start;
+        }
+
+        /* ── SIDEBAR INFO ─────────────────────────── */
+        .appt-sidebar {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: var(--r-lg);
+            padding: 28px 24px;
+            border: 1px solid var(--lgray);
+            box-shadow: var(--sh-sm);
+        }
+
+        .info-card-title {
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .info-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .info-text {
+            font-size: .875rem;
+            line-height: 1.55;
+        }
+
+        .info-text strong {
+            display: block;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: .82rem;
+        }
+
+        .info-text span {
+            color: var(--muted);
+            font-size: .8rem;
+        }
+
+        /* emergency card */
+        .emergency-card {
+            background: linear-gradient(135deg, #c0392b, #e63946);
+            border-radius: var(--r-lg);
+            padding: 24px;
+            color: var(--white);
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(230, 57, 70, .3);
+        }
+
+        .emergency-card .ec-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .emergency-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .emergency-card p {
+            font-size: .82rem;
+            opacity: .85;
+            margin-bottom: 14px;
+        }
+
+        .ec-tel {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: .5px;
+        }
+
+        .ec-tel:hover {
+            opacity: .85;
+        }
+
+        /* steps card */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--white);
+            font-size: .75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: .85rem;
+            color: var(--text);
+            line-height: 1.5;
+            padding-top: 3px;
+        }
+
+        .step-text strong {
+            display: block;
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        /* ── FORM CARD ────────────────────────────── */
+        .form-card {
+            flex: 1;
+            background: var(--white);
+            border-radius: var(--r-lg);
+            padding: 44px 40px;
+            box-shadow: var(--sh-md);
+            border: 1px solid var(--lgray);
+        }
+
+        .form-header {
+            margin-bottom: 36px;
+        }
+
+        .form-header h2 {
+            font-family: var(--serif);
+            font-size: 1.7rem;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .form-header p {
+            font-size: .9rem;
+            color: var(--muted);
+        }
+
+        /* progress bar */
+        .form-progress {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 36px;
+        }
+
+        .prog-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            position: relative;
+        }
+
+        .prog-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            right: -50%;
+            height: 2px;
+            background: var(--lgray);
+            z-index: 0;
+        }
+
+        .prog-step.done:not(:last-child)::after {
+            background: var(--accent);
+        }
+
+        .prog-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--lgray);
+            background: var(--white);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            font-weight: 700;
+            color: var(--muted);
+            transition: var(--ease);
+        }
+
+        .prog-step.done .prog-dot {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+
+        .prog-step.active .prog-dot {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0 0 4px rgba(13, 79, 139, .15);
+        }
+
+        .prog-lbl {
+            font-size: .7rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .prog-step.done .prog-lbl,
+        .prog-step.active .prog-lbl {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* row layout */
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* field group */
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .84rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 7px;
+        }
+
+        .field-icon {
+            font-size: .95rem;
+        }
+
+        .required-star {
+            color: var(--danger);
+            font-size: .8rem;
+        }
+
+        /* inputs */
+        .form-control {
+            width: 100%;
+            padding: 13px 16px;
+            font-family: var(--sans);
+            font-size: .93rem;
+            color: var(--dark);
+            background: var(--off);
+            border: 2px solid var(--lgray);
+            border-radius: var(--r-sm);
+            outline: none;
+            transition: border-color var(--ease), box-shadow var(--ease), background var(--ease);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-control::placeholder {
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        .form-control:hover {
+            border-color: #c2d5eb;
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(13, 79, 139, .1);
+        }
+
+        .form-control.valid {
+            border-color: var(--accent);
+        }
+
+        .form-control.valid:focus {
+            box-shadow: 0 0 0 4px rgba(0, 168, 120, .1);
+        }
+
+        /* select arrow */
+        .select-wrap {
+            position: relative;
+        }
+
+        .select-wrap::after {
+            content: '▾';
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            pointer-events: none;
+            font-size: .9rem;
+        }
+
+        .select-wrap select {
+            padding-right: 38px;
+            cursor: pointer;
+        }
+
+        /* date input */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            opacity: .5;
+            cursor: pointer;
+            filter: invert(0.4);
+        }
+
+        input[type="date"]:focus::-webkit-calendar-picker-indicator {
+            opacity: .8;
+        }
+
+        /* textarea */
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* field hint */
+        .field-hint {
+            font-size: .76rem;
+            color: var(--muted);
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── INSURANCE ROW ────────────────────────── */
+        .insurance-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            background: rgba(0, 168, 120, .06);
+            border: 1px solid rgba(0, 168, 120, .2);
+            border-radius: var(--r-sm);
+            padding: 14px 18px;
+            margin-bottom: 22px;
+        }
+
+        .insurance-row label {
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insurance-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent);
+            cursor: pointer;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .ins-label-text strong {
+            display: block;
+            font-size: .84rem;
+            color: var(--dark);
+        }
+
+        .ins-label-text span {
+            font-size: .77rem;
+            color: var(--muted);
+        }
+
+        /* ── DIVIDER ──────────────────────────────── */
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 8px 0 28px;
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--lgray);
+        }
+
+        .form-divider span {
+            font-size: .76rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        /* ── SUBMIT BUTTON ────────────────────────── */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-lt));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: .3px;
+            transition: var(--ease);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(13, 79, 139, .28);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent), var(--accent-lt));
+            opacity: 0;
+            transition: opacity var(--ease);
+        }
+
+        .submit-btn:hover::before {
+            opacity: 1;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(13, 79, 139, .35);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .submit-arrow {
+            position: relative;
+            z-index: 1;
+            transition: transform var(--ease);
+        }
+
+        .submit-btn:hover .submit-arrow {
+            transform: translateX(5px);
+        }
+
+        /* ── FORM FOOTER NOTE ─────────────────────── */
+        .form-note {
+            text-align: center;
+            margin-top: 18px;
+            font-size: .78rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* ── SUCCESS STATE (hidden by default) ─────── */
+        .success-panel {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 0;
+            gap: 16px;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            animation: popIn .5s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0
+            }
+
+            80% {
+                transform: scale(1.1)
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+
+        .success-panel h2 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .success-panel p {
+            color: var(--muted);
+            max-width: 380px;
+            font-size: .95rem;
+            line-height: 1.65;
+        }
+
+        .success-ref {
+            background: var(--off);
+            border: 1px solid var(--lgray);
+            border-radius: var(--r-md);
+            padding: 16px 28px;
+        }
+
+        .success-ref span {
+            font-size: .78rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .success-ref strong {
+            font-size: 1.4rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .success-btn {
+            padding: 12px 32px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: .9rem;
+            transition: var(--ease);
+        }
+
+        .success-btn:hover {
+            background: var(--accent-lt);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 168, 120, .3);
+        }
+
+        /* ── FOOTER ───────────────────────────────── */
+        .site-footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, .65);
+            padding: 72px 0 0;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .footer-col {
+            flex: 1 1 200px;
+        }
+
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-logo .logo-name {
+            color: var(--white);
+        }
+
+        .footer-about {
+            font-size: .87rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, .5);
+            margin-bottom: 22px;
+            max-width: 270px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .95rem;
+            transition: var(--ease);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .fcol-title {
+            font-size: .82rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            margin-bottom: 20px;
+        }
+
+        .flinks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .flinks a {
+            font-size: .87rem;
+            color: rgba(255, 255, 255, .5);
+            transition: color .2s, padding-left .2s;
+        }
+
+        .flinks a:hover {
+            color: var(--accent-lt);
+            padding-left: 5px;
+        }
+
+        .fcontact {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .fci {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: .87rem;
+        }
+
+        .fci-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .fci-text {
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.5;
+        }
+
+        .fci-text strong {
+            color: rgba(255, 255, 255, .85);
+            display: block;
+        }
+
+        .footer-bottom {
+            margin-top: 52px;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            padding: 22px 0;
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .38);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--accent-lt);
+        }
+
+        .fbl {
+            display: flex;
+            gap: 22px;
+        }
+
+        /* ── ANIMATIONS ───────────────────────────── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .fu {
+            opacity: 0;
+            animation: fadeUp .55s ease forwards;
+        }
+
+        .d1 {
+            animation-delay: .05s
+        }
+
+        .d2 {
+            animation-delay: .12s
+        }
+
+        .d3 {
+            animation-delay: .2s
+        }
+
+        /* ── RESPONSIVE ───────────────────────────── */
+        @media (max-width:960px) {
+            .appt-grid {
+                flex-direction: column;
+            }
+
+            .appt-sidebar {
+                flex: none;
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .info-card,
+            .emergency-card {
+                flex: 1 1 260px;
+            }
+
+            .tbg:last-child {
+                display: none;
+            }
+        }
+
+        @media (max-width:768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 16px 24px 32px;
+                box-shadow: var(--sh-lg);
+                gap: 4px;
+                z-index: 999;
+                animation: fadeUp .2s ease forwards;
+            }
+
+            .nav-links.open a {
+                display: block;
+                padding: 12px 16px;
+                border-radius: var(--r-sm);
+                font-size: 1rem;
+            }
+
+            .nav-cta {
+                text-align: center;
+            }
+
+            .form-card {
+                padding: 28px 22px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width:600px) {
+            .top-bar {
+                display: none;
+            }
+
+            .appt-section {
+                padding: 56px 0 72px;
+            }
+
+            .appt-sidebar {
+                flex-direction: column;
+            }
+
+            .form-progress {
+                display: none;
+            }
+
+            .footer-grid {
+                gap: 36px;
+            }
+
+            .footer-col {
+                flex: 1 1 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .fbl {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar" role="banner" aria-label="Contact information">
+        <div class="container top-bar-inner">
+            <div class="tbg">
+                <span class="tbi">📍 123 Cortex Avenue, Boston, MA 02110</span>
+                <span class="tbi">🕐 Mon – Fri: 7:00 AM – 8:00 PM</span>
+            </div>
+            <div class="tbg">
+                <a href="mailto:info@neurovita.com" class="tbi">✉️ info@neurovita.com</a>
+                <a href="tel:+18005551234" class="tbi">📞 1-800-555-1234</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <header class="site-header">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo" aria-label="NeuroVita Medical Center Home">
+                <div class="logo-icon" aria-hidden="true">🧠</div>
+                <div class="logo-text">
+                    <span class="logo-name">NeuroVita</span>
+                    <span class="logo-sub">Medical Center</span>
+                </div>
+            </a>
+            <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="departments.html">Departments</a>
+                <a href="doctors.html">Doctors</a>
+                <a href="index.html#emergency">Emergency</a>
+                <a href="appointment.html" class="active nav-cta">Book Appointment</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- PAGE BANNER -->
+        <section class="page-banner" aria-labelledby="banner-heading">
+            <div class="container banner-inner">
+                <div class="banner-bc">
+                    <a href="index.html">Home</a><span aria-hidden="true">›</span><span>Book Appointment</span>
+                </div>
+                <h1 class="banner-title fu d1" id="banner-heading">
+                    Book Your <em>Appointment</em>
+                </h1>
+                <p class="banner-sub fu d2">
+                    Fill in the form below and one of our patient coordinators will confirm your visit within 2 business
+                    hours.
+                </p>
+            </div>
+        </section>
+
+        <!-- APPOINTMENT SECTION -->
+        <section class="appt-section" aria-labelledby="form-heading">
+            <div class="container">
+                <div class="appt-grid">
+
+                    <!-- SIDEBAR -->
+                    <aside class="appt-sidebar fu d1" aria-label="Appointment information">
+
+                        <!-- Contact info -->
+                        <div class="info-card">
+                            <div class="info-card-title">📋 Appointment Info</div>
+                            <ul class="info-list">
+                                <li class="info-item">
+                                    <span class="info-icon">⏱️</span>
+                                    <div class="info-text"><strong>Confirmation Time</strong><span>Within 2 business
+                                            hours</span></div>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icon">📅</span>
+                                    <div class="info-text"><strong>Available Days</strong><span>Mon – Sat, 7 AM – 7
+                                            PM</span></div>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icon">🌐</span>
+                                    <div class="info-text"><strong>In-Person & Telehealth</strong><span>Both options
+                                            available</span></div>
+                                </li>
+                                <li class="info-item">
+                                    <span class="info-icon">📞</span>
+                                    <div class="info-text"><strong>Phone Booking</strong><span><a
+                                                href="tel:+18005551234"
+                                                style="color:var(--primary);font-weight:600">1-800-555-1234</a></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Steps -->
+                        <div class="info-card">
+                            <div class="info-card-title">🗺️ How It Works</div>
+                            <ol class="steps-list" aria-label="Appointment process steps">
+                                <li class="step-item">
+                                    <div class="step-num">1</div>
+                                    <div class="step-text"><strong>Fill the Form</strong>Provide your details and
+                                        preferred slot.</div>
+                                </li>
+                                <li class="step-item">
+                                    <div class="step-num">2</div>
+                                    <div class="step-text"><strong>Get Confirmed</strong>We call you within 2 hours to
+                                        confirm.</div>
+                                </li>
+                                <li class="step-item">
+                                    <div class="step-num">3</div>
+                                    <div class="step-text"><strong>Your Visit</strong>Arrive 15 min early with your
+                                        insurance card.</div>
+                                </li>
+                                <li class="step-item">
+                                    <div class="step-num">4</div>
+                                    <div class="step-text"><strong>Follow-Up Care</strong>Your care team stays with you
+                                        after the visit.</div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Emergency -->
+                        <div class="emergency-card" role="complementary" aria-label="Emergency contact">
+                            <div class="ec-icon">🚨</div>
+                            <h3>Medical Emergency?</h3>
+                            <p>Don't wait — call our emergency line immediately, available 24/7.</p>
+                            <a href="tel:+18009112911" class="ec-tel">1-800-911-2911</a>
+                        </div>
+
+                    </aside>
+
+                    <!-- FORM CARD -->
+                    <div class="form-card fu d2">
+
+                        <!-- Progress -->
+                        <nav class="form-progress" aria-label="Form progress">
+                            <div class="prog-step done">
+                                <div class="prog-dot" aria-label="Step 1 complete">✓</div>
+                                <span class="prog-lbl">Personal</span>
+                            </div>
+                            <div class="prog-step active">
+                                <div class="prog-dot" aria-current="step">2</div>
+                                <span class="prog-lbl">Medical</span>
+                            </div>
+                            <div class="prog-step">
+                                <div class="prog-dot">3</div>
+                                <span class="prog-lbl">Schedule</span>
+                            </div>
+                            <div class="prog-step">
+                                <div class="prog-dot">4</div>
+                                <span class="prog-lbl">Confirm</span>
+                            </div>
+                        </nav>
+
+                        <div class="form-header">
+                            <h2 id="form-heading">Appointment Request Form</h2>
+                            <p>All fields marked with <span style="color:var(--danger)">*</span> are required.</p>
+                        </div>
+
+                        <!-- THE FORM -->
+                        <form id="appt-form" novalidate aria-label="Appointment booking form">
+
+                            <!-- Personal Details -->
+                            <div class="form-divider"><span>👤 Personal Details</span></div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="full-name">
+                                        <span class="field-icon">👤</span> Full Name
+                                        <span class="required-star" aria-hidden="true">*</span>
+                                    </label>
+                                    <input type="text" id="full-name" name="full_name" class="form-control"
+                                        placeholder="e.g. Sarah Johnson" required autocomplete="name"
+                                        aria-required="true" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">
+                                        <span class="field-icon">📞</span> Phone Number
+                                        <span class="required-star" aria-hidden="true">*</span>
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" class="form-control"
+                                        placeholder="e.g. +1 (617) 555-0123" required autocomplete="tel"
+                                        aria-required="true" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <span class="field-icon">✉️</span> Email Address
+                                    <span class="required-star" aria-hidden="true">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="e.g. sarah@example.com" required autocomplete="email"
+                                    aria-required="true" />
+                                <div class="field-hint">ℹ️ Your confirmation will be sent to this address.</div>
+                            </div>
+
+                            <!-- Medical Details -->
+                            <div class="form-divider"><span>🏥 Medical Details</span></div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="department">
+                                        <span class="field-icon">🏥</span> Department
+                                        <span class="required-star" aria-hidden="true">*</span>
+                                    </label>
+                                    <div class="select-wrap">
+                                        <select id="department" name="department" class="form-control" required
+                                            aria-required="true">
+                                            <option value="" disabled selected>— Select Department —</option>
+                                            <option value="neurology">🧠 Neurology</option>
+                                            <option value="neurosurgery">🔪 Neurosurgery</option>
+                                            <option value="epileptology">⚡ Epileptology</option>
+                                            <option value="neuro-oncology">🔬 Neuro-Oncology</option>
+                                            <option value="spine">🦴 Spine Surgery</option>
+                                            <option value="movement">🤲 Movement Disorders</option>
+                                            <option value="diagnostics">📊 Diagnostics & Imaging</option>
+                                            <option value="stroke">🫀 Stroke Center</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="doctor">
+                                        <span class="field-icon">👨‍⚕️</span> Preferred Doctor
+                                    </label>
+                                    <div class="select-wrap">
+                                        <select id="doctor" name="doctor" class="form-control">
+                                            <option value="" selected>— No Preference —</option>
+                                            <option value="marchetti">Dr. Elena Marchetti — Neurology</option>
+                                            <option value="okafor">Dr. James Okafor — Neurosurgery</option>
+                                            <option value="anandhi">Dr. Priya Anandhi — Epileptology</option>
+                                            <option value="chen">Dr. Marcus Chen — Neuro-Oncology</option>
+                                            <option value="rahman">Dr. Aisha Rahman — Movement Disorders</option>
+                                            <option value="petrov">Dr. David Petrov — Spine Surgery</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Insurance -->
+                            <div class="insurance-row">
+                                <label for="has-insurance">
+                                    <input type="checkbox" id="has-insurance" name="has_insurance" />
+                                    <div class="ins-label-text">
+                                        <strong>I have health insurance</strong>
+                                        <span>We accept most major insurance plans — Blue Cross, Aetna, Cigna,
+                                            UnitedHealth, and more.</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Scheduling -->
+                            <div class="form-divider"><span>📅 Scheduling</span></div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="appt-date">
+                                        <span class="field-icon">📅</span> Preferred Date
+                                        <span class="required-star" aria-hidden="true">*</span>
+                                    </label>
+                                    <input type="date" id="appt-date" name="appt_date" class="form-control" required
+                                        aria-required="true" />
+                                    <div class="field-hint">ℹ️ Choose a date at least 2 business days from today.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="visit-type">
+                                        <span class="field-icon">🌐</span> Visit Type
+                                        <span class="required-star" aria-hidden="true">*</span>
+                                    </label>
+                                    <div class="select-wrap">
+                                        <select id="visit-type" name="visit_type" class="form-control" required
+                                            aria-required="true">
+                                            <option value="" disabled selected>— Select Type —</option>
+                                            <option value="in-person">🏥 In-Person Visit</option>
+                                            <option value="telehealth">💻 Telehealth (Video)</option>
+                                            <option value="phone">📞 Phone Consultation</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="symptoms">
+                                    <span class="field-icon">📝</span> Symptoms / Reason for Visit
+                                </label>
+                                <textarea id="symptoms" name="symptoms" class="form-control"
+                                    placeholder="Briefly describe your symptoms or reason for booking (e.g. recurring migraines for 3 months, numbness in left hand…)"
+                                    aria-describedby="symptoms-hint"></textarea>
+                                <div class="field-hint" id="symptoms-hint">ℹ️ Your information is kept strictly
+                                    confidential.</div>
+                            </div>
+
+                            <!-- Submit -->
+                            <button type="submit" class="submit-btn" id="submit-btn">
+                                <span>Confirm Appointment Request</span>
+                                <span class="submit-arrow" aria-hidden="true">→</span>
+                            </button>
+
+                            <p class="form-note">
+                                🔒 Your data is encrypted and protected under HIPAA guidelines.
+                            </p>
+
+                        </form>
+
+                        <!-- Success Panel (shown after submit) -->
+                        <div class="success-panel" id="success-panel" role="alert" aria-live="polite"
+                            aria-label="Appointment confirmed">
+                            <div class="success-icon">✅</div>
+                            <h2>Appointment Requested!</h2>
+                            <p>Thank you! A patient coordinator will contact you within <strong>2 business
+                                    hours</strong> to confirm your appointment details.</p>
+                            <div class="success-ref">
+                                <span>Reference Number</span>
+                                <strong id="ref-num">NV-2026-XXXX</strong>
+                            </div>
+                            <a href="index.html" class="success-btn">← Return to Home</a>
+                        </div>
+
+                    </div><!-- /form-card -->
+                </div><!-- /appt-grid -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo" aria-label="NeuroVita home">
+                            <div class="logo-icon" aria-hidden="true">🧠</div>
+                            <div class="logo-text">
+                                <span class="logo-name">NeuroVita</span>
+                                <span class="logo-sub">Medical Center</span>
+                            </div>
+                        </a>
+                    </div>
+                    <p class="footer-about">A nationally ranked center of excellence for neurological and neurosurgical
+                        care, dedicated to restoring quality of life through innovation and compassion.</p>
+                    <nav class="social-links" aria-label="Social media">
+                        <a href="#" class="social-link" aria-label="Facebook">𝑓</a>
+                        <a href="#" class="social-link" aria-label="X">𝕏</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Quick Access</h3>
+                    <nav class="flinks">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="departments.html">Departments</a>
+                        <a href="doctors.html">Our Doctors</a>
+                        <a href="appointment.html">Book Appointment</a>
+                        <a href="#">Patient Portal</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Insurance Plans</h3>
+                    <nav class="flinks">
+                        <a href="#">Blue Cross Blue Shield</a>
+                        <a href="#">Aetna</a>
+                        <a href="#">Cigna</a>
+                        <a href="#">UnitedHealth</a>
+                        <a href="#">Medicare & Medicaid</a>
+                        <a href="#">Self-Pay Options</a>
+                    </nav>
+                </div>
+                <div class="footer-col">
+                    <h3 class="fcol-title">Contact Us</h3>
+                    <address class="fcontact" style="font-style:normal">
+                        <div class="fci"><span class="fci-icon">📍</span>
+                            <div class="fci-text"><strong>Main Campus</strong>123 Cortex Ave, Suite 400<br>Boston, MA
+                                02110</div>
+                        </div>
+                        <div class="fci"><span class="fci-icon">📞</span>
+                            <div class="fci-text"><strong>Appointments</strong><a href="tel:+18005551234"
+                                    style="color:inherit">1-800-555-1234</a></div>
+                        </div>
+                        <div class="fci"><span class="fci-icon">🚨</span>
+                            <div class="fci-text"><strong>Emergency</strong><a href="tel:+18009112911"
+                                    style="color:#e63946">1-800-911-2911</a></div>
+                        </div>
+                        <div class="fci"><span class="fci-icon">✉️</span>
+                            <div class="fci-text"><strong>Email</strong><a href="mailto:info@neurovita.com"
+                                    style="color:inherit">info@neurovita.com</a></div>
+                        </div>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container" style="display:contents">
+                <p>© 2026 NeuroVita Medical Center. All rights reserved.</p>
+                <nav class="fbl" aria-label="Legal links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Accessibility</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ── Mobile nav ── */
+        const toggle = document.getElementById('nav-toggle');
+        const nav = document.getElementById('nav-links');
+        toggle.addEventListener('click', () => {
+            const open = nav.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open);
+            const [s1, s2, s3] = toggle.querySelectorAll('span');
+            if (open) { s1.style.transform = 'rotate(45deg) translate(5px,5px)'; s2.style.opacity = '0'; s3.style.transform = 'rotate(-45deg) translate(5px,-5px)'; }
+            else { [s1, s2, s3].forEach(s => { s.style.transform = ''; s.style.opacity = ''; }); }
+        });
+
+        /* ── Set minimum date to today + 2 days ── */
+        const dateInput = document.getElementById('appt-date');
+        const minDate = new Date();
+        minDate.setDate(minDate.getDate() + 2);
+        dateInput.min = minDate.toISOString().split('T')[0];
+
+        /* ── Live validation: green border on valid ── */
+        document.querySelectorAll('.form-control[required]').forEach(el => {
+            el.addEventListener('blur', () => {
+                if (el.value.trim() && el.validity.valid) el.classList.add('valid');
+                else el.classList.remove('valid');
+            });
+            el.addEventListener('input', () => {
+                if (el.value.trim() && el.validity.valid) el.classList.add('valid');
+                else el.classList.remove('valid');
+            });
+        });
+
+        /* ── Form submit ── */
+        const form = document.getElementById('appt-form');
+        const successPanel = document.getElementById('success-panel');
+        const refNum = document.getElementById('ref-num');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+
+            /* Loading state */
+            submitBtn.innerHTML = '<span>Processing…</span> <span style="position:relative;z-index:1">⏳</span>';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                /* Generate reference */
+                refNum.textContent = 'NV-2026-' + Math.floor(1000 + Math.random() * 9000);
+                form.style.display = 'none';
+                successPanel.style.display = 'flex';
+                successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1800);
+        });
+
+        /* ── Scroll reveal ── */
+        const els = document.querySelectorAll('.fu');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; io.unobserve(e.target); } });
+            }, { threshold: 0.08 });
+            els.forEach(el => { el.style.animationPlayState = 'paused'; io.observe(el); });
+        } else {
+            els.forEach(el => el.style.opacity = '1');
+        }
+    </script>
+
+</body>
+
+</html>

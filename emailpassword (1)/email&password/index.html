@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Authentication System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="container">
+        <div id="successMessage" class="success-message hidden">
+            <div class="success-content">
+                <div class="success-icon">✓</div>
+                <h2>Welcome Back!</h2>
+                <p>Successfully logged in to your account</p>
+                <p class="user-email" id="userEmail"></p>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <div class="auth-card">
+            <div id="signInForm" class="form-container active">
+                <div class="card-header">
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your account</p>
+                </div>
+
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signInEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="email"
+                                id="signInEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                class="form-input"
+                                autocomplete="email"
+                            >
+                            <span class="validation-icon" id="signInEmailIcon"></span>
+                        </div>
+                        <span class="error-message" id="signInEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signInPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                id="signInPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                class="form-input"
+                                autocomplete="current-password"
+                            >
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                id="signInTogglePassword"
+                                aria-label="Toggle password visibility"
+                            >
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="signInPasswordError"></span>
+                    </div>
+
+                    <div class="form-footer">
+                        <label class="remember-me">
+                            <input type="checkbox" id="signInRememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" id="signInBtn" class="auth-btn" disabled>
+                        <span class="btn-text">Sign In</span>
+                        <span class="spinner" id="signInSpinner"></span>
+                    </button>
+                </form>
+
+                <div class="auth-toggle">
+                    Don't have an account? <button type="button" id="toggleToSignUp" class="toggle-btn">Sign Up</button>
+                </div>
+            </div>
+
+            <div id="signUpForm" class="form-container">
+                <div class="card-header">
+                    <h1>Create Account</h1>
+                    <p>Join our platform today</p>
+                </div>
+
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="signUpEmail">Email Address</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="email"
+                                id="signUpEmail"
+                                name="email"
+                                placeholder="you@example.com"
+                                class="form-input"
+                                autocomplete="email"
+                            >
+                            <span class="validation-icon" id="signUpEmailIcon"></span>
+                        </div>
+                        <span class="error-message" id="signUpEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signUpPassword">Password</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                id="signUpPassword"
+                                name="password"
+                                placeholder="Create a strong password"
+                                class="form-input"
+                                autocomplete="new-password"
+                            >
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                id="signUpTogglePassword"
+                                aria-label="Toggle password visibility"
+                            >
+                                <span class="eye-icon">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="signUpPasswordError"></span>
+
+                        <div class="strength-container">
+                            <div class="strength-bar" id="signUpStrengthBar"></div>
+                            <span class="strength-text" id="signUpStrengthText"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signUpConfirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input
+                                type="password"
+                                id="signUpConfirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your password"
+                                class="form-input"
+                                autocomplete="new-password"
+                            >
+                            <span class="validation-icon" id="signUpConfirmIcon"></span>
+                        </div>
+                        <span class="error-message" id="signUpConfirmError"></span>
+                    </div>
+
+                    <label class="terms-checkbox">
+                        <input type="checkbox" id="agreeTerms">
+                        <span>I agree to the <a href="#">Terms and Conditions</a></span>
+                    </label>
+
+                    <button type="submit" id="signUpBtn" class="auth-btn" disabled>
+                        <span class="btn-text">Create Account</span>
+                        <span class="spinner" id="signUpSpinner"></span>
+                    </button>
+                </form>
+
+                <div class="auth-toggle">
+                    Already have an account? <button type="button" id="toggleToSignIn" class="toggle-btn">Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
