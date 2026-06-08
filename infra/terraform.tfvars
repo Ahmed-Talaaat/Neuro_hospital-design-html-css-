@@ -1,7 +1,5 @@
-vpc_cider = "10.0.0.0/16"
-vpc_name = "digilians"
-
-subnet_cider="10.0.0.0/24"
-subnet_name = "sub1"
-
-cidr_block = "0.0.0.0/0"
+vpc_cider    = "10.0.0.0/16"
+vpc_name     = "digilians"
+subnet_cider = "10.0.0.0/24"
+subnet_name  = "sub1"
+cidr_block   = "0.0.0.0/0"
