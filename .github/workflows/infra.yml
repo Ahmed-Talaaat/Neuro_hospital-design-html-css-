@@ -8,6 +8,7 @@ on:
         description: "Choose Terraform action"
         required: true
         type: choice
+        default : plan
         options:
           - plan
           - apply
@@ -16,6 +17,7 @@ on:
         description: "Choose Environment"
         required: true
         type: choice
+        default : dev
         options:
           - dev
           - prod
