@@ -23,14 +23,20 @@ on:
           - staging
           - prod
 
+# Suppresses the Node 20 deprecation warning logs
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   terraform-action:
     environment: ${{ github.event.inputs.environment }}
     runs-on: ubuntu-latest
     steps:
+      # 1. Clone your repository code to the runner
       - name: clone github repository
         uses: actions/checkout@v4
 
+      # 2. Authenticate to AWS using repository secrets
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -38,14 +44,17 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1 
 
+      # 3. Install the Terraform CLI on the runner
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "latest"
 
+      # 4. Initialize Terraform (downloads providers/backend)
       - name: infra initiate
         run: terraform init
 
+      # 5. Conditional execution based on your manual selection
       - name: terraform plan
         if: ${{ github.event.inputs.action == 'plan' }}
         run: terraform plan
