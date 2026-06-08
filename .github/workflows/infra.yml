@@ -8,7 +8,7 @@ on:
         description: "Choose Terraform action"
         required: true
         type: choice
-        default : plan
+        default: plan
         options:
           - plan
           - apply
@@ -17,13 +17,15 @@ on:
         description: "Choose Environment"
         required: true
         type: choice
-        default : dev
+        default: dev
         options:
           - dev
           - prod
 
+# This block automatically answers the "var.environment" prompt for all steps
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  TF_VAR_environment: ${{ github.event.inputs.env }}
 
 jobs:
   terraform-actions:
@@ -52,18 +54,18 @@ jobs:
         working-directory: ./infra
         run: terraform init
 
-      # 5. Conditional Tasks
+           # 5. Conditional Tasks
       - name: Terraform Plan
         if: ${{ github.event.inputs.action == 'plan' }}
         working-directory: ./infra
-        run: terraform plan
+        run: terraform plan -var="environment=${{ github.event.inputs.env }}"
 
       - name: Terraform Apply
         if: ${{ github.event.inputs.action == 'apply' }}
         working-directory: ./infra
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="environment=${{ github.event.inputs.env }}"
 
       - name: Terraform Destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
         working-directory: ./infra
-        run: terraform destroy -auto-approve
+        run: terraform destroy -auto-approve -var="environment=${{ github.event.inputs.env }}"
