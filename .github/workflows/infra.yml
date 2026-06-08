@@ -1,0 +1,65 @@
+name: Iac workfloww(Terraform)
+run-name: terraform-${{ github.event.inputs.action }}-workflow
+
+name: Iac workfloww(Terraform)
+run-name: terraform-${{ github.event.inputs.action }}-workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Select the action to perform'
+        required: true
+        default: 'plan'
+        type: choice
+        options:
+          - plan
+          - apply
+          - destroy
+      environment:
+        description: 'Select the environment to deploy'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+jobs:
+  terraform-action:
+    environment: ${{ github.event.inputs.environment }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone github repository
+        uses: actions/checkout@v4
+
+      # 2. Authenticate to AWS
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-west-1
+
+      # 3. CRITICAL MISSING STEP: Install Terraform on the runner
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "latest"
+
+      # 4. Initialize Terraform
+      - name: infra initiate
+        run: terraform init
+
+      # 5. Execute Chosen Action
+      - name: terraform plan
+        if: ${{ github.event.inputs.action == 'plan' }}
+        run: terraform plan
+
+      - name: terraform apply
+        if: ${{ github.event.inputs.action == 'apply' }}
+        run: terraform apply -auto-approve
+
+      - name: terraform destroy
+        if: ${{ github.event.inputs.action == 'destroy' }}
+        run: terraform destroy -auto-approve
